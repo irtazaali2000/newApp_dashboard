@@ -1,0 +1,39 @@
+.productDetail{
+    /* border: 1px solid black; */
+    /* height: 200px; */
+    /* overflow-y: scroll; */
+
+}
+.productDetail::-webkit-scrollbar{
+    width: 7px;
+}
+
+.productDetail::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 5px;
+}
+.productAbout::-webkit-scrollbar{
+    width: 7px;
+}
+.productAbout::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 5px;
+}
+.line_chart{
+    padding: 20px 0px ;
+    padding-top: 40px;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+.pie_chart{
+    width: 300px;
+    margin-top: 20px;
+    /* border: 1px solid black; */
+}
+.pieChartBody{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px 0px;
+}

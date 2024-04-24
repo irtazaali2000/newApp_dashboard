@@ -1,0 +1,104 @@
+.chartBody{
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    width: 100% ;
+    /* flex-wrap: wrap; */
+}
+
+.chart{
+    background-color: white;
+    padding: 14px 7px ;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.cardFirstRow{
+    display:flex;
+    gap:30px;
+    justify-content: space-between ;
+    padding:0px 10px;
+    width:200px;
+    /* border:1px solid black; */
+}
+.cardPrice span:first-child{
+    opacity:.6;
+    font-size:13px;
+
+}
+.cardPrice span:last-child
+{
+    font-size:30px;
+    font-weight:500;
+
+}
+.cardBody{
+    /* padding:10px 14px; */
+    box-sizing:border-box;
+    /* border:1px solid black; */
+    width:300px;
+}
+.cardSecondRow{
+    margin-top : 20px ;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:end;
+    font-size:13px;
+}
+.cardSecondRow span:first-child  { 
+    /* color:#00c99d; */
+    font-weight:600;
+}
+.cardSecondRow span:last-child {
+    opacity:.7;
+    font-weight:600;
+}
+
+.tinyCardBody{
+    display:flex;
+    padding:10px 0px;
+    box-sizing:border-box;
+    align-items:center;
+    gap:20px;
+    border-bottom:1px solid #cdcecf;
+}
+.tinyCardBody_first{
+    /* border:1px solid black; */
+    padding:0px 10px;
+}
+.tinyCardBody_second{
+    /* border: 1px solid black; */
+    /* padding:10px 0px; */
+    box-sizing: border-box;
+}
+.tinyCardBody_second div:first-child
+{
+    font-size:30px;
+}
+.tinyCardBody_second div:last-child{
+    /* color:#00cca2; */
+}
+.pieChartRepresentData{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+}
+.pieChartRepresentDataBar{
+    width:40px;
+
+    height:10px;
+
+}
+.pieChartBox
+{
+    align-items:center;
+    gap
+    :10px;
+    display:flex;
+}

@@ -1,0 +1,47 @@
+<CTable>
+                        <CTableHead>
+                            <CTableRow>
+                                <CTableHeaderCell scope="col">SKUs</CTableHeaderCell>
+                                <CTableHeaderCell scope="col" style={{border:"" , width:"200px"}}>{productNames}</CTableHeaderCell>
+                                <CTableHeaderCell scope="col">Market</CTableHeaderCell>
+                            </CTableRow>
+                        </CTableHead>
+                        <CTableBody>
+                            {
+                                productData.map(
+                                    (item) => {
+                                        return (
+                                            <>
+                                                <CTableRow>
+                                                    <CTableHeaderCell scope="row"> {item.sku} </CTableHeaderCell>
+                                                    <CTableDataCell>{
+                                                productNames === "Categories" ? item.category : item.brand
+                                                
+                                                    }</CTableDataCell>
+                                                    <CTableDataCell>{item.market}</CTableDataCell>
+                                                    <CTableDataCell  className='retailerStyle'  style={{backgroundColor:`${{}}`  
+                                                ,...retailerStyle
+
+                                                }} >
+                                                    <div style={{width:"40px" , height:"40px" , borderRadius:"50%",
+                                                backgroundColor:`${item.range}` 
+                                                }}>
+                                                    45
+                                                    {/* {item.retailer_1.data} */}
+                                                </div>
+                                                    
+                                                    </CTableDataCell>
+                                                    <CTableDataCell  className='retailerStyle' style={{backgroundColor:`${item.retailer_2.range}` 
+                                                ,...retailerStyle
+                                                }} >{item.retailer_2.data}</CTableDataCell>
+                                                    <CTableDataCell className='retailerStyle'  style={{backgroundColor:`${item.retailer_3.range}` 
+                                                ,...retailerStyle
+                                                }} >{item.retailer_3.data}</CTableDataCell>
+                                                </CTableRow>
+                                            </>
+                                        )
+                                    }
+                                )
+                            }
+                        </CTableBody>
+                    </CTable>

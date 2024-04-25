@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import FirstPieChart from './FirstPieChart'
 import {
@@ -63,6 +63,8 @@ import CardInstock from './CardInstock'
 import TinyChartData from './TinyChartData'
 import PieBold from './Pie'
 // import Example from '../Price Intelligence/Pie'
+import RetailerCompare from './RetailerCompare'
+import { toPadding } from 'chart.js/helpers'
 
 const Dashboard = () => {
   const progressExample = [
@@ -186,6 +188,10 @@ const Dashboard = () => {
     },
   ]
 
+  const [indikateColorBox, setIndikateColorBox] = useState({
+    width: "20px",
+    height: "20px"
+  })
   return (
     <>
       {/* <WidgetsDropdown className="mb-4" /> */}
@@ -198,10 +204,13 @@ const Dashboard = () => {
         </div>
 
       </CRow>
-      <CRow>
+      <CRow >
         <div className='chartBody'>
           <LineBarAreaChart />
-          <FirstPieChart />
+          {/* <FirstPieChart /> */}
+
+          <RetailerCompare />
+
         </div>
       </CRow>
       <CRow>
@@ -218,7 +227,40 @@ const Dashboard = () => {
           </CCard>
 
           <CCard>
-            <LineGrapgh width={500} height={350} leftMargin={14} />
+            <CCardHeader>Position</CCardHeader>
+            {/* <LineGrapgh width={500} height={350} leftMargin={14} /> */}
+            <div style={{
+              backgroundColor: "white", margin: "10px 0px", borderRadius: "20px", display: "flex", flexDirection: "", justifyContent: "", alignItems: "center",
+              border: "", height: "370px", width: "auto" , padding:"0px 10px"
+            }}>
+              <div style={{display:"flex" , flexDirection:"column" ,alignItems:"center"}}>
+                <div style={{ fontSize: "18px", fontWeight: "500", marginTop: "10px", }}>
+                  
+                </div>
+                <div style={{ border: "" }} >
+                  {<Example width={490} height={250} radius={120}/>}
+                </div>
+              </div>
+              <div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#009653" }}></div>
+                  <div>Expensive than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#f70000 " }}></div>
+                  <div>Cheaper than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#ff8700 " }}></div>
+                  <div>Slightly cheaper than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#00a1e9 " }}></div>
+                  <div>Equal to us</div>
+                </div>
+
+              </div>
+            </div>
           </CCard>
           {/* <CCard className="w-30 mb-4" style={{border:"" , height:"390px" , width:"300px"}}>
             <CCardHeader>Monthly Sales</CCardHeader>
@@ -263,7 +305,7 @@ const Dashboard = () => {
               />
             </CCardBody>
           </CCard> */}
-         
+
         </div>
       </CRow>
       {/* <CRow>

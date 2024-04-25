@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './style.css'
 import { CTable, CTableHead, CTableRow, CTableHeaderCell, CTableBody, CTableDataCell, CCard } from '@coreui/react'
 import { color } from 'chart.js/helpers'
@@ -43,7 +43,7 @@ const MarketAnalytics = () => {
             },
             {
                 sku: "002",
-                category: "Game consoles",
+                category: "Perfume",
                 brand: "ps45",
                 market: "UK",
                 retailer_1: {
@@ -61,7 +61,7 @@ const MarketAnalytics = () => {
                     range: "#00944b",
                     price: "200$"
                 },
-                dorpDownList: data.info.GameConsoles
+                dorpDownList: data.info.perfume
             },
             {
                 sku: "003",
@@ -86,32 +86,11 @@ const MarketAnalytics = () => {
                 , dorpDownList: data.info.Clothing
             },
             ,
-            {
-                sku: "004",
-                category: "Clothing",
-                brand: "Apple",
-                market: "US",
-                retailer_1: {
-                    data: "out of stock",
-                    range: "#ff474c",
-                    price: "190$"
-                },
-                retailer_2: {
-                    data: "In Stock",
-                    range: "#ff7128",
-                    price: "190$"
-                },
-                retailer_3: {
-                    data: "out of stock",
-                    range: "#ff474c",
-                    price: "180$"
-                },
-                dorpDownList: data.info.Clothing
-            },
+           
             ,
             {
                 sku: "005",
-                category: "shoes",
+                category: "Shoes",
                 brand: "jordan",
                 market: "UK",
                 retailer_1: {
@@ -134,7 +113,7 @@ const MarketAnalytics = () => {
             ,
             {
                 sku: "006",
-                category: "electronics",
+                category: "Bags",
                 brand: "N-vedia",
                 market: "US",
                 retailer_1: {
@@ -152,7 +131,29 @@ const MarketAnalytics = () => {
                     range: "#ff474c",
                     price: "230$"
                 },
-                dorpDownList: data.info.electronics
+                dorpDownList: data.info.bags
+            },
+            {
+                sku: "007",
+                category: "Caps & Hats",
+                brand: "N-vedia",
+                market: "US",
+                retailer_1: {
+                    data: "In Stock",
+                    range: "#ff7128",
+                    price: "170$"
+                },
+                retailer_2: {
+                    data: "In Stock",
+                    range: "#00944b",
+                    price: "250$"
+                },
+                retailer_3: {
+                    data: "out of stock",
+                    range: "#ff474c",
+                    price: "230$"
+                },
+                dorpDownList: data.info.caps
             },
 
         ]
@@ -175,33 +176,64 @@ const MarketAnalytics = () => {
             }
         }
     }
-    function check(e) {
+    let refer = useRef(null)
+    // useEffect(
+    //     ()=>{
+
+    //     } , [dropDownListing]
+    // )
+    const [dropDownListing, setDropDownListing] = useState([])
+
+    const [displayListing, setDisplayListing] = useState({ display: "none" })
+    function check(dataDropDownListing) {
+
+
+        return (e) => {
+            let element = e.target.parentElement.parentElement.children[1]
+            setDropDownListing([])
+            if (element.style.display === "none") {
+                element.style.display = "block"
+                console.log(dataDropDownListing)
+                setDropDownListing(dataDropDownListing)
+            }
+            else {
+                element.style.display = "none"
+                // setDisplayListing({ display: "none" })
+            }
+            console.log(e.target.parentElement.parentElement.children[1].style.display)
+            // if()
+            // let element = e.target.parentElement.children
+            // let first = element[0].children
+            // for (let i = 0; i < element.length; i++) {
+            //     // console.log(element[i].children , 'colums')
+            //     for (let j = 0; j < element[i].children.length; j++) {
+            //         console.log(element[i].children[j].className, 'data')
+            //         if (element[i].children[j].className === "dropDownList") {
+            //             console.log('class name okay')
+            //             if (element[i].children[j].style.display === 'none') {
+            //                 element[i].children[j].style.display = 'block'
+            //             }
+            //             else {
+            //                 element[i].children[j].style.display = 'none'
+            //             }
+            //         }
+
+            //     }
+
+
+
+            // }
+        }
         // console.log('okay td onclick is working')
         // console.log(e.target.parentElement.children)
 
         // this is row
-        let element = e.target.parentElement.children
         // console.log(element[0].children)
         // console.log(element[0].children.length)
         // console.log(element[0].children.length)
-        let first = element[0].children
-        for (let i = 0; i < element.length; i++) {
-            // console.log(element[i].children , 'colums')
-            for (let j = 0; j < element[i].children.length; j++) {
-                console.log(element[i].children[j].className, 'data')
-                if (element[i].children[j].className === "dropDownList") {
-                    console.log('class name okay')
-                    if (element[i].children[j].style.display === 'none') {
-                        element[i].children[j].style.display = 'block'
-                    }
-                    else {
-                        element[i].children[j].style.display = 'none'
-                    }
-                }
 
-            }
+        // console.log(e)
 
-        }
         // for (let i = 0; i < first.length; i++) {
         //     // console.log(first[i].className )
         //     if(first[i].className === 'dropDownList')
@@ -288,7 +320,7 @@ const MarketAnalytics = () => {
 
 
 
-              
+
 
 
             </div>
@@ -297,125 +329,164 @@ const MarketAnalytics = () => {
 
                 <CCard>
                     <div className='productNames'>
-                        <table>
-                            <tr>
-                                <th style={{ width: "240px" }}>
+                        <table style={{width:"100%"}}>
+                            <tr style={{width:"100%"}}>
+                                <th style={{ width: "440px" }}>
                                     {productNames}
                                 </th>
-                                <th style={{ width: "100px" }}>
+                                <th style={{ width: "130px"  ,paddingLeft:"19px" ,boxSizing:"border-box" }}>
                                     SKUs
                                 </th>
-                                <th style={{ width: "100px" }} >
+                                <th style={{ width: "130px" ,paddingLeft:"19px" ,boxSizing:"border-box"  }} >
                                     Market
                                 </th>
-                                <th style={{ width: "180px", textAlign: "center" }}>
+                                <th style={{ width: "140px", textAlign: "center" ,paddingLeft:"19px" ,boxSizing:"border-box"  }}>
                                     Walmart
                                 </th>
-                                <th style={{ width: "180px", textAlign: "center" }}>
+                                <th style={{ width: "140px", textAlign: "center" ,paddingLeft:"19px" ,boxSizing:"border-box"  }}>
                                     Amazon
                                 </th>
-                                <th style={{ width: "180px", textAlign: "center" }}>
+                                <th style={{ width: "140px", textAlign: "center"  ,paddingLeft:"19px" ,boxSizing:"border-box" }}>
                                     Alibaba
                                 </th>
                             </tr>
+                        </table>
+                        <table className='droperTable' style={{border:"" , width:"100%"}}>
                             {
                                 productData.map(
                                     (item) => {
                                         return (
                                             <>
-                                                <tr style={{}} >
-                                                    <td onClick={check} style={{ height: "90px", fontWeight: "500", boxSizing:"border-box"  }} >
-                                                     
+                                                <div>
+                                                    <tr style={{}} >
+                                                        <th className='thWidthClass1'  onClick={check(item.dorpDownList)} ref={refer} style={{ height: "90px", fontWeight: "500", boxSizing: "border-box", paddingTop: "40px" , width:"" }} >
+
+
                                                             {productNames === 'Categories' ? item.category : item.brand}
-                                                           
-                                                      
-                                                        {
+
+
+
+                                                            {/* {
                                                             item.dorpDownList.map(
                                                                 (values) => {
                                                                     return (
                                                                         <>
-                                                                            <div className='dropDownList' style={{ color: "black", display: "none" 
-                                                                        
-                                                                        }}>
+                                                                            <div className='dropDownList' style={{
+                                                                                color: "black", display: "none",
+
+                                                                            }}>
                                                                                 <h3>{values.productName}</h3>
                                                                             </div>
                                                                         </>
                                                                     )
                                                                 }
                                                             )
-                                                        }
-                                                    </td>
-                                                    <td>
-                                                        {item.sku}
-                                                    </td>
-                                                    <td>
-                                                        {item.market}
-                                                    </td>
-                                                    <td className='retailer' style={{ color: "white", height: "90px", paddingLeft: "50px" }} >
-                                                        <div style={{ ...tablePriceTag, borderRadius: "50%", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                            <div > {item.retailer_1.price}  </div>
-                                                        </div>
-                                                        {
+                                                        } */}
+                                                        </th>
+                                                        <th className='thWidthClass'>
+                                                            {item.sku}
+                                                        </th>
+                                                        <th className='thWidthClass'>
+                                                            {item.market}
+                                                        </th>
+                                                        <th className='retailer thWidthClass' style={{ color: "white", height: "90px", paddingLeft: "30px" }} >
+                                                            <div style={{ ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center" , 
+                                                        paddingLeft:"10px" , width:"90px" , height:"40px"
+                                                        }}>
+                                                                <div > {item.retailer_1.price}  </div>
+                                                            </div>
+                                                            {/* {
                                                             item.dorpDownList.map(
                                                                 (values) => {
                                                                     return (
                                                                         <>
-                                                                            <div className='dropDownList' style={{ color: "black", display: "none" }}>
+                                                                            <div className='dropDownList' style={{ display: "none", }}>
                                                                                 {values.retailer1}
                                                                             </div>
                                                                         </>
                                                                     )
                                                                 }
                                                             )
-                                                        }
-                                                    </td>
-                                                    <td className='retailer' style={{
-                                                        color: "white", paddingLeft: "55px", boxSizing: "border-box"
+                                                        } */}
+                                                        </th>
+                                                        <th className='retailer thWidthClass' style={{
+                                                            color: "white", paddingLeft: "30px", boxSizing: "border-box"
 
-                                                    }} >
-                                                        <div style={{ ...tablePriceTag, borderRadius: "50%", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                            <div>  {item.retailer_2.price}</div>
-                                                        </div>
-                                                        {
-                                                            item.dorpDownList.map(
-                                                                (values) => {
-                                                                    return (
-                                                                        <>
-                                                                            <div className='dropDownList' style={{ color: "black", display: "none" }}>
-                                                                                {values.retailer2}
-                                                                            </div>
-                                                                        </>
-                                                                    )
-                                                                }
-                                                            )
-                                                        }
-                                                    </td>
-                                                    <td className='retailer' style={{ color: "white", paddingLeft: "50px", height: "90px", }} >
-                                                        <div style={{ ...tablePriceTag, borderRadius: "50%", backgroundColor: `${item.retailer_1.range}`, position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                            <div style={{ left: "30%", top: "30%" }} >{item.retailer_3.price}</div>
-                                                        </div>
-                                                        {
-                                                            item.dorpDownList.map(
-                                                                (values) => {
-                                                                    return (
-                                                                        <>
-                                                                            <div className='dropDownList' style={{ color: "black", display: "none" }}>
-                                                                                {values.retailer3}
-                                                                            </div>
-                                                                        </>
-                                                                    )
-                                                                }
-                                                            )
-                                                        }
-                                                    </td>
-                                                </tr>
+                                                        }} >
+                                                            <div style={{
+                                                                ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center",paddingLeft:"10px" , width:"90px" , height:"40px"
+
+                                                            }}>
+                                                                <div>  {item.retailer_2.price}</div>
+                                                            </div>
+                                                            {
+                                                                item.dorpDownList.map(
+                                                                    (values) => {
+                                                                        return (
+                                                                            <>
+                                                                                <div className='dropDownList' style={{ display: "none" }}>
+                                                                                    {values.retailer2}
+                                                                                </div>
+                                                                            </>
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        </th>
+                                                        <th className='retailer thWidthClass' style={{ color: "white", paddingLeft: "30px", height: "90px", }} >
+                                                            <div style={{ ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, position: "relative", display: "flex", justifyContent: "center", alignItems: "center" ,paddingLeft:"10px" , width:"90px" , height:"40px" }}>
+                                                                <div style={{ left: "30%", top: "30%" }} >{item.retailer_3.price}
+                                                                </div>
+                                                            </div>
+                                                            {
+                                                                item.dorpDownList.map(
+                                                                    (values) => {
+                                                                        return (
+                                                                            <>
+                                                                                <div className='dropDownList' style={{ display: "none" }}>
+                                                                                    {values.retailer3}
+                                                                                </div>
+                                                                            </>
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        </th>
+                                                    </tr>
+                                                    <div className='listingDiv' style={displayListing}>
+                                                    {
+                                                        // productData
+                                                        // dorpDownList
+                                                        
+                                                        dropDownListing.map(
+                                                            (item) => {
+                                                                return (
+                                                                    <>
+                                                                        <tr  style={{  
+                                                                        width:"100%" , border:""
+                                                                        }}>
+                                                                            <td style={{width:"40%"}}>{item.productName}</td>
+                                                                            <td style={{ width:"15%",   }} >{"num"}</td>
+                                                                            <td style={{ width:"15%",   }} >market</td>
+                                                                            <td   style={{ width:"15%",    textAlign: "" }}>{item.retailer1}</td>
+                                                                            <td   style={{  width:"15%",   textAlign: "" }}>{item.retailer2}</td>
+                                                                            <td  style={{  width:"15%",   textAlign: "" }}>{item.retailer3}</td>
+                                                                        </tr>
+                                                                    </>
+                                                                )
+                                                            }
+                                                        )
+                                                    }
+                                                    </div>
+                                                </div>
                                             </>
                                         )
                                     }
                                 )
                             }
-
                         </table>
+
+
                     </div>
                 </CCard>
 

@@ -27,15 +27,31 @@ function DetailExplanation() {
     const [dataLopping, setDataLooping] = useState(
         [
             {
-                imageUrl: "https://m.media-amazon.com/images/I/912xgelNpdL._AC_SX466_.jpg",
-                productName: "Legendary Whitetails Journeyman",
+                imageUrl: productData.info.MobilePhones[0].imgUrl,
+                productName: productData.info.MobilePhones[0].productName,
                 productPrice: "$42.00",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["jacket", "hoodie" , "mens fasion" ],
                 productUrl: "/theme/product1",
-                Retailer_1: ["red", '$41.00', 'Out of stock'],
-                Retailer_2: ["green", '$48.00', 'Instock'],
-                Retailer_3: ["orange", '$47.00', 'Instock'],
+                Retailer_1: ["red", 
+                {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                   
+                }
+                , 'Out of stock'],
+                Retailer_2: ["green",  {
+                    Namshi : "$39.00",
+                    Trendyol : "$43.00",
+                    Styli:"$47.00",
+                    Adidas :"$50.00",
+                }, 'Instock'],
+                Retailer_3: ["orange", {
+                    "Lulu Hyper Market":"$65.00",
+                    Centrepoint :"$54.00",
+                    Max:"$56.00",
+                }, 'Instock'],
                 Retailer1_price_data: {
                     price_margin: "20%",
                     net_margin: "14%",
@@ -54,27 +70,46 @@ function DetailExplanation() {
                 productDetail: {
                     productPoints: {
                         name: "Legendary Whitetails Journeyman",
-                        brand: "men cloths",
-                        "Country of Origin": "china",
+                        brand: "Apple",
+                        "Country of Origin": "USA",
 
                     },
                     About: [
-                        "For the signature Legendary Whitetails fit, see our size chart which accomodiates Standard and Big & Tall sizes",
-                        "Experience the Legendary Whitetails men's jacket quality with a blend of Cotton and Polyester",
-                        "Top quality flannel-lined for ultimate warmth, the Legendary Whitetails Journeyman is your shield against colds"
+                        "6.1'' Super Retina XDR display with ProMotion. 5G Superfast downloads, high-quality streaming",
+                        "Cinematic mode in 1080p at 30 fps. Dolby Vision HDR video recording up to 4K at 60 fps. 6X Optical zoom range",
+                        "A15 Bionic chip. New 6-core CPU with 2 performance and 4 efficiency cores. New 5-core GPU. New 16-core Neural Engine"
                     ]
-                }
+                },
+                graphData : [
+                    {name : "Noon" , price :41},
+                    {name : "Carrefour" , price :50},
+                    {name : "Namshi" , price :39},
+                    {name : "Lulu Hyper Market" , price :65},
+                ]
             },
             {
-                imageUrl: "https://m.media-amazon.com/images/I/71r69UUQRtL._AC_SX522_.jpg",
-                productName: "Pullover Hoodie",
+                imageUrl: productData.info.perfume[0].imgUrl,
+                productName: productData.info.perfume[0].productName,
                 productPrice: "$25.000",
                 productUrl: "/theme/product2",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["jacket", "hoodie" , "mens fasion" , "mens"],
-                Retailer_1: ["green", '$33.00', 'Instock'],
-                Retailer_2: ["red", '$31.00', 'Out of Stock'],
-                Retailer_3: ["orange", '$28.00', 'Instock'],
+                Retailer_1: ["green", {
+                    Noon : "$61.00",
+                    Carrefour :"$30.00",
+                    Shein : "$31.00",
+                   }, 'Instock'],
+                Retailer_2: ["red", {
+                    Namshi : "$49.00",
+                    Trendyol : "$34.00",
+                    Styli:"$55.00",
+                    Adidas :"$44.00",
+                }, 'Out of Stock'],
+                Retailer_3: ["orange", {
+                    "Lulu Hyper Market":"$44.00",
+                    Centrepoint :"$65.00",
+                    Max:"$77.00",
+                }, 'Instock'],
                 Retailer1_price_data: {
                     price_margin: "18%",
                     net_margin: "15%",
@@ -102,18 +137,38 @@ function DetailExplanation() {
                         "Fire The Cannons! This Buccaneers Hoodie will stand out for casual wear, tailgates and gamedays. The Junk Food Clothing x NFL Collection brings a hint of that vintage vibe that runs deep through NFL franchises. ",
                         "This Buccaneers Hoodie features a big, full-color print that gives it a super soft hand feel and will last for years to come."
                     ]
-                }
+                },
+                graphData : [
+                    {name : "Noon" , price :61},
+                    {name : "Carrefour" , price :61},
+                    {name : "Namshi" , price :49},
+                    {name : "Lulu Hyper Market" , price :44},
+                ]
             },
             {
-                imageUrl: "https://m.media-amazon.com/images/I/81k6R2uh1JL._AC_SX569_.jpg",
-                productName: "Apple Watch Ultra 2 ",
+                imageUrl: productData.info.Clothing[0].imgUrl,
+                productName: productData.info.Clothing[0].productName,
                 productPrice: "$106.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["apple", "watch" , "apple watch" ],
-                Retailer_1: ["green", '$145.00', 'Instock'],
-                Retailer_2: ["green", '$103.00', 'Instock'],
-                Retailer_3: ["red", '$140.00', 'Out of Stock'],
+                Retailer_1: ["green", {
+                    Noon : "$48.00",
+                    Carrefour :"$54.00",
+                    Shein : "$56.00",
+                   
+                }, 'Instock'],
+                Retailer_2: ["green",  {
+                    Namshi : "$39.00",
+                    Trendyol : "$66.00",
+                    Styli:"$57.00",
+                    Adidas :"$77.00",
+                }, 'Instock'],
+                Retailer_3: ["red",  {
+                    "Lulu Hyper Market":"$70.00",
+                    Centrepoint :"$90.00",
+                    Max:"$120.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -135,23 +190,39 @@ function DetailExplanation() {
                         brand: "Apple",
                         "Country of Origin": "UK",
                     },
-                    About: [
-                        "You can call and text without your iPhone, even overseas with international roaming. Stream your favorite music and podcasts. ",
-                        "The Compass app delivers helpful views and details like elevation, incline, longitude, and latitude. ",
-                        "Mark your location with Compass Waypoints."
-                    ]
-                }
+                    About:productData.info.Clothing[0].about
+                },
+                graphData : [
+                    {name : "Noon" , price :48},
+                    {name : "Carrefour" , price :54},
+                    {name : "Namshi" , price :39},
+                    {name : "Lulu Hyper Market" , price :70},
+                ]
             },
             {
-                imageUrl: "https://images.smiletemplates.com/uploads/screenshots/492/0000492645/powerpoint-template-450w.jpg",
-                productName: "Adidas EQ21 Run Shoes",
+                imageUrl: productData.info.shoes[0].imgUrl,
+                productName: productData.info.shoes[0].productName,
                 productPrice: "$106.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["shoes" , "shoe" , "Adidas" , "adidas"],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$40.00",
+                    Carrefour :"$87.00",
+                    Shein : "$47.00",
+                   
+                }, 'Out of Stock'],
+                Retailer_2: ["green",   {
+                    Namshi : "$76.00",
+                    Trendyol : "$70.00",
+                    Styli:"$60.00",
+                    Adidas :"$50.00",
+                }, 'Instock'],
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market":"$77.00",
+                    Centrepoint :"$58.00",
+                    Max:"$89.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -173,24 +244,39 @@ function DetailExplanation() {
                         brand: "adidas",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "Women's running shoes with flexible cushioning ",
-                        "BOUNCE: Lightweight Bounce cushioning provides enhanced comfort and flexibility ",
-                        "HIGH TRACTION: The rubber outsole delivers great grip",
-                        "MADE IN PART WITH RECYCLED CONTENT: Made with a series of recycled materials, this upper features at least 50% recycled content."
-                    ]
-                }
+                    About: productData.info.shoes[0].about
+                },
+                graphData : [
+                    {name : "Noon" , price :40},
+                    {name : "Carrefour" , price :87},
+                    {name : "Namshi" , price :76},
+                    {name : "Lulu Hyper Market" , price :77},
+                ]
             },
             {
-                imageUrl: "https://outfitters.com.pk/cdn/shop/products/F0271103901_2_f6453e98-cac1-4647-857d-c6ab9e399f2f.jpg?v=1671520371",
-                productName: "Oversized Button Down Shirt",
+                imageUrl: productData.info.caps[0].imgUrl,
+                productName: productData.info.caps[0].productName,
                 productPrice: "$56.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["mens fasion" , "shirt" , "shirts" , "shirt for mens"],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$76.00",
+                    Carrefour :"$33.00",
+                    Shein : "$66.00",
+                   
+                }, 'Out of Stock'],
+                Retailer_2: ["green", {
+                    Noon : "$78.00",
+                    Carrefour :"$52.00",
+                    Shein : "$88.00",
+                   
+                }, 'Instock'],
+                Retailer_3: ["red",  {
+                    "Lulu Hyper Market":"$99.00",
+                    Centrepoint :"$78.00",
+                    Max:"$76.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -212,25 +298,39 @@ function DetailExplanation() {
                         brand: "Wrangler Authentics Store",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "Relaxed fit",
-                        "2 button front dual chest pockets ",
-                        "Gray chambray back neck lining",
-                        "Washed for softness",
-                        "Button cuffs"
-                    ]
-                }
+                    About:productData.info.caps[0].about
+                },
+                graphData : [
+                    {name : "Noon" , price :76},
+                    {name : "Carrefour" , price :33},
+                    {name : "Namshi" , price :88},
+                    {name : "Lulu Hyper Market" , price :99},
+                ]
             },
             {
-                imageUrl: "https://www.flashfootwear.com.pk/wp-content/uploads/2021/01/Grey-Hyper-Bolt-Running-Shoes-for-Men-1.jpg",
-                productName: "Grey Hyper Bolt Running Shoes for Men",
+                imageUrl: productData.info.bags[0].imgUrl,
+                productName: productData.info.bags[0].productName,
                 productPrice: "$56.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["running shoes" , "shoes for mens" , "shoes"],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$66.00",
+                    Carrefour :"$60.00",
+                    Shein : "$59.00",
+                   
+                }, 'Out of Stock'],
+                Retailer_2: ["green", {
+                    Noon : "$46.00",
+                    Carrefour :"$39.00",
+                    Shein : "$90.00",
+                   
+                }, 'Instock'],
+                Retailer_3: ["red",  {
+                    "Lulu Hyper Market":"$69.00",
+                    Centrepoint :"$95.00",
+                    Max:"$130.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -252,22 +352,40 @@ function DetailExplanation() {
                         brand: "Nike",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "synthetic",
-                        "Relaxed fit",
-                    ]
-                }
+                    About: productData.info.bags[0].about
+                },
+                graphData : [
+                    {name : "Noon" , price :66},
+                    {name : "Carrefour" , price :60},
+                    {name : "Namshi" , price :90},
+                    {name : "Lulu Hyper Market" , price :69},
+                ]
             },
             {
-                imageUrl: "https://scentsnsecrets.com/cdn/shop/files/harmonycopy_1f9ee8ef-2046-4cd0-bd1a-4754970d5d9f.jpg?v=1703512952&width=360",
-                productName: "Versace Eros for Men",
+                imageUrl: productData.info.MobilePhones[1].imgUrl,
+                productName: productData.info.MobilePhones[1].productName,
                 productPrice: "$76.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["men perfumes", "mens", 'perfumes'],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$65.00",
+                    Carrefour :"$65.00",
+                    Shein : "$76.00",
+                }, 'Out of Stock'],
+                Retailer_2: ["green", 
+                {
+                                  Namshi : "$65.00",
+                                  Trendyol : "$77.00",
+                                  Styli:"$87.00",
+                                  Adidas :"$66.00",
+                              }
+              , 'Instock'],
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market":"$85.00",
+                    Centrepoint :"$100.00",
+                    Max:"$47.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -289,24 +407,38 @@ function DetailExplanation() {
                         brand: "Versace ",
                         "Country of Origin": "UK",
                     },
-                    About: [
-                        "Apply onto clean, dry skin",
-                        "Versace Eros is made in Italy",
-                        "This is high quality product made of high quality material",
-                        "We offer many great sales and discounts making this fragrance cheaper than at department stores."
-                    ]
-                }
+                    About:productData.info.MobilePhones[1].about
+                },
+                graphData : [
+                    {name : "Noon" , price :65},
+                    {name : "Carrefour" , price :69},
+                    {name : "Namshi" , price :65},
+                    {name : "Lulu Hyper Market" , price :85},
+                ]
             },
             {
-                imageUrl: "https://chahyay.com/cdn/shop/files/Untitleddesign_10_2_785x.jpg?v=1710832771",
-                productName: "Travelon Anti-theft Packable Backpack",
+                imageUrl: productData.info.perfume[1].imgUrl,
+                productName: productData.info.perfume[1].productName,
                 productPrice: "$40.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["men bag", "bags", 'Bags', "Bag"],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$77.00",
+                    Carrefour :"$73.00",
+                    Shein : "$80.00",
+                }, 'Out of Stock'],
+                Retailer_2: ["green",  {
+                    Namshi : "$81.00",
+                    Trendyol : "$120.00",
+                    Styli:"$76.00",
+                    Adidas :"$55.00",
+                }, 'Instock'],
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market":"$89.00",
+                    Centrepoint :"$100.00",
+                    Max:"$78.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -328,24 +460,40 @@ function DetailExplanation() {
                         brand: "Travelon",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "Locking main compartment with RFID blocking interior pocket",
-                        "2 mesh side pockets hold a water bottle, umbrella, sunglasses or sunblock",
-                        "Packs in its own zip compartment for storage and travel",
-                        "Slash-resistant bottom and front panels and straps"
-                    ]
-                }
+                    About: productData.info.perfume[1].about
+                },
+                graphData : [
+                    {name : "Noon" , price :77},
+                    {name : "Carrefour" , price :73},
+                    {name : "Namshi" , price :81},
+                    {name : "Lulu Hyper Market" , price :89},
+                ]
             },
             {
-                imageUrl: "https://cdn.shopify.com/s/files/1/0733/3432/5537/files/24.2.29_FUROR_BaseballCaps.jpg?v=1709193433",
-                productName: "Flexfit Men's Delta Seamless Cap",
+                imageUrl: productData.info.Clothing[1].imgUrl,
+                productName: productData.info.Clothing[1].productName,
                 productPrice: "$20.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["men Cap", "Caps", 'cap'],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$85.00",
+                    Carrefour :"$79.00",
+                    Shein : "$89.00",
+                   
+                }, 'Out of Stock'],
+                Retailer_2: ["green", {
+                    Noon : "$78.00",
+                    Carrefour :"$120.00",
+                    Shein : "$99.00",
+                   
+                }, 'Instock'],
+                Retailer_3: ["red", 
+                {
+                                   "Lulu Hyper Market":"$65.00",
+                                   Centrepoint :"$54.00",
+                                   Max:"$56.00",
+                               }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -367,24 +515,38 @@ function DetailExplanation() {
                         brand: "Travelon",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "Seamless stretchable fitted cap with lightweight visor fabrication and 3-layer multifunction sweatband with sweat absorption, quick drying, and stain prevention",
-                        "Structured front panels",
-                        "No Closure",
-                        "Mid crown height"
-                    ]
-                }
+                    About:productData.info.Clothing[1].about
+                },
+                graphData : [
+                    {name : "Noon" , price :85},
+                    {name : "Carrefour" , price :79},
+                    {name : "Namshi" , price :99},
+                    {name : "Lulu Hyper Market" , price :65},
+                ]
             },
             {
-                imageUrl: "https://www.gulahmedshop.com/media/wysiwyg/blocks/2024/top_sub_category_icons/men_clothes/24_01_26/unstitched.png?format=jpg",
-                productName: "Max Cool Unstitched Fabric Cotton",
+                imageUrl: productData.info.shoes[1].imgUrl,
+                productName: productData.info.shoes[1].productName,
                 productPrice: "$120.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["men cloth", "cloths", 'cloths for men'],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$65.00",
+                    Carrefour :"$86.00",
+                    Shein : "$88.00",
+                }, 'Out of Stock'],
+                Retailer_2: ["green",  {
+                    Namshi : "$76.00",
+                    Trendyol : "$43.00",
+                    Styli:"$47.00",
+                    Adidas :"$50.00",
+                }, 'Instock'],
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market":"$65.00",
+                    Centrepoint :"$54.00",
+                    Max:"$56.00",
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -406,24 +568,40 @@ function DetailExplanation() {
                         brand: "Xpril Store",
                         "Country of Origin": "USA",
                     },
-                    About: [
-                        "2 tone Shoulder and waistline sporty finish Slimmer fit and sporty design Men's Functional High Quality Cotton Collar Short Sleeve",
-                        "Hand wash or Machine Wash/Cold Water",
-                        "No Closure",
-                        "Due to monitor settings, monitor pixel definitions, we cannot guarantee that the color you see on your screen as an exact color of the product."
-                    ]
-                }
+                    About:productData.info.shoes[0].about
+                },
+                graphData : [
+                    {name : "Noon" , price :65},
+                    {name : "Carrefour" , price :86},
+                    {name : "Namshi" , price :76},
+                    {name : "Lulu Hyper Market" , price :65},
+                ]
             },
             {
-                imageUrl: "https://theperfumeclub.pk/cdn/shop/files/InitioOudForGreatnessEdp90ml_360x.jpg?v=1712959815",
-                productName: "Initio Oud For Greatness",
+                imageUrl: productData.info.caps[1].imgUrl,
+                productName: productData.info.caps[1].productName,
                 productPrice: "$200.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
                 productId: ["men perfumes", "mens", 'perfumes'],
-                Retailer_1: ["red", '$145.00', 'Out of Stock'],
-                Retailer_2: ["green", '$133.00', 'Instock'],
-                Retailer_3: ["red", '$170.00', 'Out of Stock'],
+                Retailer_1: ["red", {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                   
+                }, 'Out of Stock'],
+                Retailer_2: ["green", {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                   
+                }, 'Instock'],
+                Retailer_3: ["red", {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                   
+                }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -450,7 +628,65 @@ function DetailExplanation() {
                         "Provides a relaxing and harmonious experience with its addictive and sensual composition of citrus and ginger",
                         "This unisex perfume offers a sense of peace and tranquility, creating a secret dimension of deep harmony,"
                     ]
-                }
+                },
+                graphData : [
+                    {name : "Noon" , price :41},
+                    {name : "Carrefour" , price :50},
+                    {name : "Namshi" , price :51},
+                    {name : "Lulu Hyper Market" , price :41},
+                ]
+            },
+            {
+                imageUrl: productData.info.bags[1].imgUrl,
+                productName: productData.info.bags[1].productName,
+                productPrice: "$200.00",
+                productUrl: "/theme/product3",
+                eyeBtnColor: eyeDarkLight,
+                productId: ["men perfumes", "mens", 'perfumes'],
+                Retailer_1: ["red", {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                }, 'Out of Stock'],
+                Retailer_2: ["green", {
+                    Noon : "$41.00",
+                    Carrefour :"$50.00",
+                    Shein : "$51.00",
+                }, 'Instock'],
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market":"$65.00",
+                    Centrepoint :"$54.00",
+                    Max:"$56.00",
+                }, 'Out of Stock'],
+                Retailer1_price_data: {
+                    price_margin: "12%",
+                    net_margin: "14%",
+                    discount: 18
+                },
+                Retailer2_price_data: {
+                    price_margin: "30%",
+                    net_margin: "19%",
+                    discount: "No discount available"
+                },
+                Retailer3_price_data: {
+                    price_margin: "25%",
+                    net_margin: "10%",
+                    discount: 7
+                },
+                productDetail: {
+                    productPoints: {
+                        name: "Initio Oud For Greatness",
+                        brand: "Fragrance World Store",
+                        "Country of Origin": "UK",
+                    },
+                    About: productData.info.bags[1].about
+                },
+                graphData : [
+                    {name : "Noon" , price :41},
+                    {name : "Carrefour" , price :50},
+                    {name : "Namshi" , price :51},
+                    {name : "Lulu Hyper Market" , price :41},
+                ]
             },
         ])
 
@@ -463,7 +699,6 @@ function DetailExplanation() {
     useEffect(
         () => {
             // console.log(dataLopping)
-
             for (let i = 0; i < dataLopping.length; i++) {
                 // console.log(dataLopping[i].productId)
                 for (let j = 0; j < dataLopping[i].productId.length; j++) {
@@ -471,21 +706,15 @@ function DetailExplanation() {
                     {
                         console.log(dataLopping[i].productId)
                         console.log(dataLopping[i])
-
                         
-                        // array.push(dataLopping[i])
-                        // setArray(
-                        //     (prev)=>{
-                        //         return [...prev , array.push(dataLopping[i])]
-                        //     }
-                        // )
-                        // men perfumes
+                      
                         setDataLooping((prev) => {
                             return [ dataLopping[i], ...prev]
                         }) 
                         // console.log(array)
                     }
                     else{
+            // setDataLooping([])
                         
                     }
                     
@@ -573,7 +802,7 @@ function DetailExplanation() {
 
     const [retailler1Select, setRetailler1Select] = useState("Noon")
     const [retailler2Select, setRetailler2Select] = useState("Namshi")
-    const [retailler3Select, setRetailler3Select] = useState("Boots")
+    const [retailler3Select, setRetailler3Select] = useState("Lulu Hyper Market")
     useEffect(
         () => {
             // console.log(retailler1Select)
@@ -590,7 +819,8 @@ function DetailExplanation() {
     function sendData(data) {
         return () => {
             // console.log(data)
-            console.log(productData.setProductData_detail(data))
+            // console.log()
+            productData.setProductData_detail(data)
         }
     }
 
@@ -598,7 +828,7 @@ function DetailExplanation() {
     return (
         <>
             <div className='body' style={{
-                position: "relative",
+                position: "",
             }}>
                 {/* <div style={{
                     position: "absolute", width: "", height: "100vh", backgroundColor: "rgba(0,0,0,0.5)",
@@ -665,7 +895,7 @@ function DetailExplanation() {
                                 <option>Noon</option>
                                 <option>Carrefour</option>
                                 <option>Shein</option>
-                                <option>LuLu</option>
+                                <option>Lulu Hyper Market</option>
                             </select>
                         </div>
                         <div className="selectFilters" >
@@ -753,7 +983,7 @@ function DetailExplanation() {
                                                 <td style={{ paddingTop: "30px", position: "" }}>
 
                                                     <div onClick={price_tag_popup(item.Retailer1_price_data.price_margin, item.Retailer1_price_data.net_margin, item.Retailer_1[1]
-                                                        , item.Retailer1_price_data.discount
+                                                      , item.Retailer1_price_data.discount
                                                     )} className='priceTagBody' style={{
                                                         ...propductDetailBox,
                                                     }}>
@@ -761,7 +991,7 @@ function DetailExplanation() {
                                                         <div style={{ width: "20px", height: "100%", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px", backgroundColor: `${item.Retailer_1[0]}`, fontWeight: "bold" }}></div>
                                                         <div className='' style={{ padding: "20px 10px", boxSizing: "border-box", }}>
 
-                                                            <h4 style={{ fontSize: "18px" }} >{item.Retailer_1[1]}</h4>
+                                                            <h4 style={{ fontSize: "18px" }} >{item.Retailer_1[1][retailler1Select]}</h4>
                                                             <p style={{ fontSize: "18px" }}>{item.Retailer_1[2]}</p>
 
                                                         </div>
@@ -771,7 +1001,7 @@ function DetailExplanation() {
                                                     <div className='priceTagBody' onClick={price_tag_popup(item.Retailer2_price_data.price_margin, item.Retailer2_price_data.net_margin, item.Retailer_2[1], item.Retailer2_price_data.discount)} style={propductDetailBox}>
                                                         <div style={{ width: "20px", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px", height: "100%", backgroundColor: `${item.Retailer_2[0]}` }}></div>
                                                         <div style={{ padding: "20px 10px", boxSizing: "border-box" }}>
-                                                            <h4 style={{ fontSize: "18px" }}  >{item.Retailer_2[1]}</h4>
+                                                            <h4 style={{ fontSize: "18px" }}  >{item.Retailer_2[1][retailler2Select]}</h4>
                                                             <p style={{ fontSize: "18px" }} >{item.Retailer_2[2]}</p>
 
                                                         </div>
@@ -781,7 +1011,7 @@ function DetailExplanation() {
                                                     <div className='priceTagBody' onClick={price_tag_popup(item.Retailer3_price_data.price_margin, item.Retailer3_price_data.net_margin, item.Retailer_3[1], item.Retailer3_price_data.discount)} style={propductDetailBox}>
                                                         <div style={{ width: "20px", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px", height: "100%", backgroundColor: `${item.Retailer_3[0]}` }}></div>
                                                         <div style={{ padding: "20px 10px", boxSizing: "border-box" }}>
-                                                            <h4 style={{ fontSize: "18px" }}  >{item.Retailer_3[1]}</h4>
+                                                            <h4 style={{ fontSize: "18px" }}  >{item.Retailer_3[1][retailler3Select]}</h4>
                                                             <p style={{ fontSize: "18px" }} >{item.Retailer_3[2]}</p>
 
                                                         </div>

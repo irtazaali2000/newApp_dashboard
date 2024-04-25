@@ -37,6 +37,11 @@
 .tableData{
 
 }
+.retailer{
+    /* display: flex; */
+    /* flex-direction: column; */
+    
+}
 .retailerStyle{
     color: white;
     border: 1px solid white;
@@ -66,16 +71,37 @@
 
 .dropDownList{
     color: black;
+    /* text-align: center; */
     margin-top: 20px;
     font-size: 16px;
-    
+    padding-left: 10px;
+    box-sizing: border-box;
+    /* border: 1px solid  black; */
+
     /* display: none; */
-
-
+}
+.dropDownFirst{
+    /* border: 1px solid black; */
+    /* margin-top: 05px; */
 }
 .dropDownList h3{
     font-size: 16px;
     font-weight: 500;
     padding-top: 11px;
     /* color: red; */
+}
+
+.droperTable div{
+    /* background-color: red; */
+    width: 100%;
+}
+.droperTable tr{
+    /* background-color: red; */
+    width: 100%;
+}
+.thWidthClass{
+    width: 13%;
+}
+.thWidthClass1{
+    width: 40%;
 }

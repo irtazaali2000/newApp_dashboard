@@ -1,4 +1,5 @@
 import React from 'react'
+
 import TinyChart from './SmallArea'
 function TinyChartData(props) {
   return (

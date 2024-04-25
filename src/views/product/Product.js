@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SimpleLineChart from './Chart'
 import './product.css'
+import { useContext } from 'react'
+import NewContext from '../marketAnalytics/context/NewContext'
 import {
     Line,
     CartesianGrid,
@@ -19,6 +21,14 @@ import { CChartPie } from '@coreui/react-chartjs'
 
 
 function Product(props) {
+
+    // useEffect(
+    //     ()=>{
+    //         console.log(props.pieData)
+    //     },
+    // [])
+    
+    const data = useContext(NewContext)
 
     const [productBody, setproductBody] = useState({
         display: "flex"
@@ -40,6 +50,14 @@ function Product(props) {
         // backgroundColor:"white"
     })
     const [productChart, setProductChart] = useState({})
+    const [array , setArray] = useState([])
+    useEffect(
+        ()=>{
+            // console.log(data.productData_detail.Retailer_1[1])
+            setArray([data.productData_detail.Retailer_1[1]])
+            console.log(array)
+        } , [])
+    
     return (
         <>
 
@@ -111,6 +129,7 @@ function Product(props) {
                     border:"" , width:"60%"
                     }}>
                             <h4>{props.productName}</h4>
+                            <h5>Price : {props.price}</h5>
                             {
                                 props.productProperty.map(
                                     (item) => {
@@ -175,9 +194,9 @@ function Product(props) {
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Line type="monotone" dataKey="Amazon" stroke="#8884d8" />
-                                <Line type="monotone" dataKey="Walmart" stroke="#82ca9d" />
-                                <Line type="monotone" dataKey="Alibaba" stroke="#ff7128" />
+                                <Line type="linear" dataKey="price" stroke="#8884d8" />
+                                {/* <Line type="monotone" dataKey="Carrefour" stroke="#82ca9d" />
+                                <Line type="monotone" dataKey="Shein" stroke="#ff7128" /> */}
                             </LineChart>
                         </div>
                         <div className='pieChartBody'>
@@ -185,12 +204,12 @@ function Product(props) {
 
                                 <CChartPie
                                     data={{
-                                        labels: ['#ff0000', '#009653', '#ff8700'],
+                                        labels: ['Carrefour', 'Noon', 'Shein'],
                                         datasets: [
                                             {
                                                 data: [300, 50, 100],
                                                 backgroundColor: ['#ff0000', '#009653', '#ff8700'],
-                                                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                                                hoverBackgroundColor: ['#FF6384', 'Noon', '#FFCE56'],
                                             },
                                         ],
                                     }}

@@ -30,30 +30,51 @@ function NewProducts() {
 
         ]
     )
-    const data = [
-        { name: 'Jan', Amazon: 4000, Walmart: 2400, Alibaba: 2400 },
-        { name: 'Feb', Amazon: 3000, Walmart: 1398, Alibaba: 2210 },
-        { name: 'March', Amazon: 2000, Walmart: 9800, Alibaba: 2290 },
-        { name: 'April', Amazon: 2780, Walmart: 3908, Alibaba: 2000 },
-        { name: 'May', Amazon: 1890, Walmart: 4800, Alibaba: 2181 },
-        { name: 'June', Amazon: 2390, Walmart: 3800, Alibaba: 2500 },
-        { name: 'July', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-        { name: 'August', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-        { name: 'Sep', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-        { name: 'oct', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-        { name: 'Nov', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-        { name: 'Dec', Amazon: 3490, Walmart: 4300, Alibaba: 2100 },
-    ];
-
+    const [data , setData] = useState([])
+    
+    // [
+    //     // { name: 'Jan', Noon : 4000,  Carrefour : 2400, Shein : 2400 },
+    //     // { name: 'Feb', Noon: 3000, Carrefour: 12398, Shein: 210 },
+    //     // { name: 'March', Noon: 2000, Carrefour: 9800, Shein: 2290 },
+    //     // { name: 'April', Noon: 2780, Carrefour: 3908, Shein: 2000 },
+    //     // { name: 'May', Noon: 1890, Carrefour: 4800, Shein: 2181 },
+    //     // { name: 'June', Noon: 2390, Carrefour: 3800, Shein: 2500 },
+    //     // { name: 'July', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    //     // { name: 'August', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    //     // { name: 'Sep', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    //     // { name: 'oct', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    //     // { name: 'Nov', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    //     // { name: 'Dec', Noon: 3490, Carrefour: 4300, Shein: 2100 },
+    // ];
+    let [arr , setArr] = useState([])
+    // let i = 1
     useEffect(
         ()=>{
-            console.log(productData_detail.productDetail.productPoints["Country of Origin"], "product data will be show at here")
+            // console.log(productData_detail.productDetail.productPoints["Country of Origin"], "product data will be show at here")
+            
+            // console.log(productData_detail.Retailer_2[1] , "from new product")
+        //    arr.push(productData_detail.Retailer_1[1] , productData_detail.Retailer_2[1] , productData_detail.Retailer_3[1])
+        // setArr([])
+        // //    console.log(productData_detail.graphData , "data")
+        //    for (let i = 0; i < productData_detail.graphData.length; i++) {
+        //     // console.log(Object.values(productData_detail.graphData[i]) , "only keys")
+        //     arr.push(Object.values(productData_detail.graphData[i][1]))
+        //     setArr(
+        //         (prev)=>{
+        //             return [...prev , Object.values(productData_detail.graphData[i][1])]
+        //         }
+        //     )
+        //    }
+
+           setData(productData_detail.graphData)
+           
+
             // console.log("okay")
         } , []
     )
   return (
     <>
-    <Product 
+    <Product pieData={arr} price={productData_detail.productPrice}
                 productImgUrl={productData_detail.imageUrl}
                 productName={productData_detail.productName}  productProperty={productProperty} 
                 about="About this item" aboutProperty={productData_detail.productDetail.About} data={data} 

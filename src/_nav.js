@@ -31,10 +31,16 @@ const _nav = [
     component: CNavTitle,
     name: 'Price Trend',
   },
+  // {
+  //   component: CNavItem,
+  //   name: <span style={{marginLeft:"16px"}}>Stock Analytics </span> ,
+  //   to: '/theme/detailed-explanation',
+  //   icon: <i style={{margin:"0px 0px"}} class="fa-solid fa-chart-simple"></i>,
+  // },
   {
     component: CNavItem,
     name: <span style={{marginLeft:"16px"}}>Stock Analytics </span> ,
-    to: '/theme/detailed-explanation',
+    to: '/stock-analytics',
     icon: <i style={{margin:"0px 0px"}} class="fa-solid fa-chart-simple"></i>,
   },
   {

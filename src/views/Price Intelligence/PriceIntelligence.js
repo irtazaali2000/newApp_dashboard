@@ -7,8 +7,12 @@ import NewContext from '../marketAnalytics/context/NewContext';
 import { element } from 'prop-types';
 import SmallChart from './SmallChart';
 import LineGrapgh from './LineGrapgh';
+import JsonContext from '../global context/JsonContext';
+
 function PriceIntelligence() {
   const contextData = useContext(NewContext)
+  let jsonContextData = useContext(JsonContext)
+  // console.log(jsonContextData.retaillersData.competitors, "irtaza")
   const data01 = [
     { name: 'Group A', value: 400 },
     { name: 'Group B', value: 300 },
@@ -102,26 +106,46 @@ function PriceIntelligence() {
     contextData.priceTrendCloths
   )
   let [count, setCount] = useState(0)
+  let [arrayCount, setArrayCount] = useState([
+    { name: "Amazon", price: "2966.73" },
+    { name: "Noon", price: "2851.52" },
+    { name: "Carrefour", price: "2915.13" },
+    { name: "Shein", price: "2798.77" },
+    { name: "Namshi", price: "2715.74" },
+    { name: "Alibaba", price: "3076.91" },
+    { name: "Lulu Hypermarket", price: "2893.86" },
+    { name: "Walmart", price: "3018.86" },
+    { name: "Trendyol", price: "2697.86 " },
+  ])
+
+  let jsonContextDataFetchProducts = []
+  useEffect(
+    ()=>{
+      // jsonContextData.categoryData
+      for (let i = 0; i < jsonContextData.categoryData.length; i++) {
+        jsonContextDataFetchProducts.push(...jsonContextData.categoryData[i].products)
+      }
+    }
+  )
+  let [myProducts , setMyProducts] = useState(jsonContextDataFetchProducts)
   useEffect(
     () => {
-      // console.log(contextData.array.length)
+      //  console.log(myProducts , "This is all products for priceaintelligence page!!!")
 
+      for (let i = 0; i < myProducts.length; i++) {
 
-
-      setTimeout(
-
-        () => {
-          // return contextData.array.length !== prev ? prev++ : prev = 0
-
-          if (priceTrendData === contextData.priceTrendCloths) {
-            setPriceTrendData(contextData.priceTrendMobilePhones)
+        for (let j = 0; j < myProducts[i].retailer.length; j++) {
+          if (myProducts[i].retailer[j].name === "Trendyol") {
+            console.log(myProducts[i].retailer[j].price, "this is all prices for amazon , main page")
+            // count += data.products[i].retailer[j].price
+            setCount(count += myProducts[i].retailer[j].price)
           }
-          else {
-            setPriceTrendData(contextData.priceTrendCloths)
-          }
-        }, 4000
-      )
-    },
+
+        }
+      }
+
+      console.log(count, "this is from main page for Trendyol all prices!!!!!!")
+    }, []
   )
 
   const [pricingStoreData, setPricingStoredata] = useState([
@@ -184,83 +208,187 @@ function PriceIntelligence() {
     },
   ])
 
-  const [indikateColorBox , setIndikateColorBox] = useState({
-    width:"20px",
-    height:"20px"
+  const [indikateColorBox, setIndikateColorBox] = useState({
+    width: "10px",
+    height: "10px"
   })
-// #00aced - blue
-// e20c00 - red
-// f28d00 - yellow
-// #009859 - green
-const [displayPopupComparision , setDisplayPopupComparision] = useState({
-  display:"none"
-})
-const [newStock , setNewStock] = useState([])
-  function PopupComparision( array , color ){
-    return ()=>{
-      setNewStock([])
-      // console.log(array[0].color)
-      for (let i = 0; i < array.length; i++) {
-        if(array[i].color === color)
-        {
-          // console.log(array[i] , "equal")
-          setNewStock((prev) => {
-            return [...prev ,array[i] ]
-          })
-          
+  // #00aced - blue
+  // e20c00 - red
+  // f28d00 - yellow
+  // #009859 - green
+  const [displayPopupComparision, setDisplayPopupComparision] = useState({
+    display: "none"
+  })
+  const [smallPieValue, setSmallPieValue] = useState([])
+  const [smallPieHead, setSmallPieHead] = useState([])
+
+  let [pricingStatus, setPricingStatus] = useState()
+  let [iAmHigher, setIAmHigher] = useState([])
+  let [countRight, setCountRight] = useState(0)
+  let [countAlter, setCountAlter] = useState(0)
+  function PopupComparision(data) {
+    return () => {
+      setIAmHigher([])
+      setCountRight(0)
+      setCountAlter(0)
+
+      for (let i = 0; i < myProducts.length; i++) {
+
+        let retailerArray = Object.values(myProducts[i].retailers)
+        for (let j = 0; j < retailerArray.length; j++) {
+          // myProducts[i].retailer
+          if (data === "higher") {
+            setPricingStatus("Products with higer Prices ")
+            if (retailerArray[j].price < myProducts[i].my_price) {
+              // console.log(myProducts[i].retailer[j].price, "prices")
+              // console.log(myProducts[i].retailer[j].name, "name")
+              setIAmHigher(
+                (prev) => {
+                  return [...prev, {
+                    retailerName: retailerArray[j].name,
+                    retailerPrice: retailerArray[j].price,
+                    myProductPrice: myProducts[i].my_price, productName: myProducts[i].name
+                  }]
+
+                }
+              )
+              setCountRight(
+                (prev) => {
+                  return prev + 1
+                }
+              )
+            }
+
+            else {
+              console.log(myProducts[i].retailer[j].price, "price")
+              console.log(myProducts[i].retailer[j].name, "name")
+              // console.log(setCountHigh(countHigh + 1))
+              setCountAlter((prev) => {
+                return prev + 1
+              })
+            }
+          }
+          else if (data === "average") {
+            // console.log(myProducts[i].retailer[j].price , "this is from average")
+            setPricingStatus("Products with average Prices ")
+            let val = retailerArray[j].price
+            let myVal = myProducts[i].my_price
+
+            let masterVal = val - 10
+            if (myVal > masterVal && myVal < val) {
+              console.log(myProducts[i].my_price, "my prices")
+              console.log(retailerArray[j].price, "other prices")
+              setIAmHigher(
+                (prev) => {
+                  return [...prev, {
+                    retailerName: retailerArray[j].name,
+                    retailerPrice: retailerArray[j].price,
+                    myProductPrice: myProducts[i].my_price, productName: myProducts[i].name
+                  }]
+
+                }
+              )
+            }
+
+          }
+          else if (data === "lower") {
+            setPricingStatus("Products with Lower Prices ")
+            if (retailerArray[j].price > myProducts[i].my_price) {
+              console.log(retailerArray[j].price, "prices")
+              console.log(retailerArray[j].name, "name")
+              setIAmHigher(
+                (prev) => {
+                  return [...prev, {
+                    retailerName: retailerArray[j].name,
+                    retailerPrice: retailerArray[j].price,
+                    myProductPrice: myProducts[i].my_price, productName: myProducts[i].name
+                  }]
+
+                }
+              )
+              setCountRight(
+                (prev) => {
+                  return prev + 1
+                })
+            }
+          }
+          else if (data === "equal") {
+            setPricingStatus("Products with Equal Prices")
+            if (retailerArray[j].price === myProducts[i].my_price) {
+              console.log(retailerArray[j].price, "prices")
+              console.log(retailerArray[j].name, "name")
+              setIAmHigher(
+                (prev) => {
+                  return [...prev, {
+                    retailerName: retailerArray[j].name,
+                    retailerPrice: retailerArray[j].price,
+                    myProductPrice: myProducts[i].my_price, productName: myProducts[i].name
+                  }]
+
+                }
+              )
+              setCountRight(
+                (prev) => {
+                  return prev + 1
+                })
+            }
+          }
+
+
+
         }
-        
       }
-      console.log(newStock)
+      console.log(iAmHigher)
+
+
+
+
+      // setSmallPieHead(Heading)
+      // setSmallPieValue(data)
       setDisplayPopupComparision({
-        display:"flex"
+        display: "flex"
       })
     }
   }
   return (
     <>
-    <div style={displayPopupComparision} className='popupBodyForComparision'>
-      <div className='popup_comparision'>
-        <table>
-          <tr>
-            <th>Competitor</th>
-            <th></th>
-            <th>Value</th>
-            <th>Stock Availability</th>
-          </tr>
-          {
-            newStock.map(
-              (item)=>{
-                return(
-                  <>
-                  <tr>
-                    <td>
-                      {item.name}
-                    </td>
-                    <td>
-                      <div style={{width:"120px" , height:"6px" , }}>
-                        <div style={{width:`${item[""]}` , height:"100%" , backgroundColor:`${item.color}`}}>
+      <div style={displayPopupComparision} className='popupBodyForComparision'>
+        <div className='popup_comparision_body'>
+          <div className='popup_comparision' >
+            <i onClick={() => (setDisplayPopupComparision({ display: "none" }))} class="fa-solid fa-circle-xmark crossIconComparisionScreen"></i>
+            <h2>{pricingStatus} </h2>
+            {/* <h4>{countRight}</h4> */}
+            <table>
+              <tr>
+                <th>Retailer Name</th>
+                <th>Retailer Price</th>
+                <th>My price</th>
+                <th>Product Name</th>
+              </tr>
+              {
+                iAmHigher.map(
+                  (item) => {
+                    return (
+                      <>
 
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                     {item.value} 
-                    </td>
-                    <td>
-                      {item["Stock Avalibility"]}
-                    </td>
-                  </tr>
-                  </>
+                        <tr>
+                          <td>{item.retailerName}</td>
+                          <td>{item.retailerPrice}</td>
+                          <td>{item.myProductPrice}</td>
+                          <td>{item.productName}</td>
+                        </tr>
+                      </>
+                    )
+                  }
                 )
               }
-            )
-          }
-        </table>
+            </table>
 
-        <button onClick={()=>(setDisplayPopupComparision({display:"none"}))} >Okay</button>
+
+            {/* <button onClick={() => (setDisplayPopupComparision({ display: "none" }))} >Okay</button> */}
+          </div>
+        </div>
       </div>
-    </div>
       <div className='bodyFont' style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         margin: "20px 0px", position: "relative"
@@ -280,129 +408,168 @@ const [newStock , setNewStock] = useState([])
       }} >
         <div style={{ display: "flex", gap: "20px", border: "" }} >
           <div className='pricesRangeUtility' style={{
-            alignItems: "center",
-            display: "flex", boxSizing: "border-box", padding: "20px 30px"
-            , gap: "", backgroundColor: "white", borderRadius: "20px", border: "", padding: "5px 5px"
+            alignItems: "", height: "150px",
+            display: "flex", boxSizing: "border-box", padding: "20px 10px"
+            , gap: "40px", backgroundColor: "white", borderRadius: "20px", border: ""
           }}>
 
             <div className='tinyPieChartBox' style={{ ...boxSmallChart, border: "" }}>
               <div style={{ textAlign: "center" }} ><h5>Highest Price</h5> </div>
               <div style={{ display: "flex", alignItems: "", gap: "", border: "" }}>
-                <div onClick={PopupComparision(pricingStoreData , "#e20c00" )} style={{
-                  fontSize: "14px" 
-                  
+                <div onClick={PopupComparision("higher")} style={{
+                  fontSize: "14px", border: ""
+
                 }} >
-                  <SmallChart  color="#de0000" value={350} width={150} height={150} />
+                  <SmallChart color="#de0000" value1={55} value2={79} width={100} height={100} />
                 </div>
               </div>
             </div>
             <div className='tinyPieChartBox' style={{ ...boxSmallChart, border: "" }}>
               <div style={{ textAlign: "center" }} ><h5>Lower Price</h5> </div>
               <div style={{ display: "flex", alignItems: "", gap: "20px", border: "" }}>
-                <div onClick={PopupComparision(pricingStoreData , "#009859" )} style={{
+                <div onClick={PopupComparision("lower")} style={{
                   fontSize: "14px"
-                  
+
                 }} >
-                  <SmallChart  color="#02944c" value={650} width={150} height={150} />
+                  <SmallChart color="#02944c" value1={79} value2={55} width={100} height={100} />
                 </div>
               </div>
             </div>
             <div className='tinyPieChartBox' style={{ ...boxSmallChart, border: "" }}>
-              <div style={{ textAlign: "center" }} ><h5>On purchase</h5> </div>
+              <div style={{ textAlign: "center" }} ><h5>Average Price</h5> </div>
               <div style={{ display: "flex", alignItems: "", gap: "20px", border: "" }}>
-                <div onClick={PopupComparision(pricingStoreData , "#f28d00")} style={{
+                <div onClick={PopupComparision("average")} style={{
                   fontSize: "14px"
-                  
+
                 }} >
-                  <SmallChart  color="#f28d00" value={430} width={150} height={150} />
+                  <SmallChart color="#f28d00" value1={59} value2={55} width={100} height={100} />
                 </div>
               </div>
             </div>
             <div className='tinyPieChartBox' style={{ ...boxSmallChart, border: "" }}>
-              <div style={{ textAlign: "center" }} ><h5>Exclusive</h5> </div>
+              <div style={{ textAlign: "center" }} ><h5>Equal Price</h5> </div>
               <div style={{ display: "flex", alignItems: "", gap: "20px", border: "" }}>
-                <div onClick={PopupComparision(pricingStoreData ,"#00aced" )} style={{
+                <div onClick={PopupComparision("equal")} style={{
                   fontSize: "14px"
-                  
+
                 }} >
-                  <SmallChart  color="#00aced" value={530} width={150} height={150} />
+                  <SmallChart color="#00aced" value1={100} value2={134} width={100} height={100} />
                 </div>
               </div>
             </div>
 
           </div>
 
-          <div style={{ height: "", width: "", padding: "20px 20px" ,  gap: "", display: "flex", flexDirection: "column", boxSizing: "border-box", backgroundColor: "white", borderRadius: "20px", flexGrow: "1" }}>
-            <div style={{ fontSize: "18px" , textAlign:"center" , fontWeight:"500"  }} >Price Trend of last 4 months</div>
-            <div style={{border:"", fontSize:"14px"}}>  <LineGrapgh width={340} height={220} leftMargin={-14} />  </div>
-            
-            {/* <div style={{
-              display: "flex", flexDirection: "column", gap: "10px",
-              justifyContent: "center", border: "", padding: "0px 20px", margin: "0px"
+
+          <div style={{
+            backgroundColor: "white", margin: "0px 0px", borderRadius: "20px", display: "flex", flexDirection: "column", justifyContent: "", alignItems: "",
+            border: "", width: "400px", height: "150px", padding: "05px 0px"
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: "500", marginTop: "0px", textAlign: "center" }}>
+              Position
+            </div>
+            <div style={{
+              display: "flex", alignItems: "center", gap: "20px", border: "",
+              padding: "0px 40px"
             }}>
+              <div style={{ fontSize: "10px" }} >
+                {<Example width={120} height={120} radius={55} />}
+              </div>
+              <div style={{ fontSize: "13px" }}>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#009653" }}></div>
+                  <div>Cheaper than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#f70000 " }}></div>
+                  <div>Expensive than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#ff8700 " }}></div>
+                  <div>Average than us</div>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ ...indikateColorBox, backgroundColor: "#00a1e9 " }}></div>
+                  <div>Equal to us</div>
+                </div>
 
-              {
-                priceTrendData.productData.map(
-                  (item) => {
-                    return (
-                      <>
-                        <div style={{ width: "200px", height: "7px", marginBottom: "", marginTop: "", margin: "10px 0px" }}>
-                          <div style={{ fontSize: "14px", display: "flex", justifyContent: "space-between" }} ><div style={{
+              </div>
+            </div>
 
-                          }}>{item.date}</div> <div> {item.price}% </div></div>
-                          <div style={{ width: `${item.price}%`, height: "100%", borderRadius: "7px", backgroundColor: `${item.color}` }} ></div>
-                        </div>
-                      </>
-                    )
-                  }
-                )
-              }
-
-
-            </div> */}
           </div>
         </div>
 
 
-        <div style={{ display: "flex", gap: "20px", border: "", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "20px", border: "", alignItems: "", flexDirection: "column" }}>
 
           <div style={{
-            border: "", height: "440px", width: "800px", backgroundColor: "white", borderRadius: "20px",
-            margin: "10px 0px "
+            border: "", height: "", width: "100%", backgroundColor: "white", borderRadius: "20px",
+            margin: "10px 0px ", boxSizing: "border-box", padding: "20px 0px"
           }}>
 
             <table className='pricingDataTable'>
-              <tr>
+              <tr className="comparisionTableHeadingRow" style={{ border: "none" }}>
                 <th>
                   Competitor
                 </th>
                 <th>
-                  
+                  Sales Progress
                 </th>
                 <th>
-                  value
+                  Sales percentage
+                </th>
+                {/* <th>
+                  Sales
+                </th> */}
+                <th>
+                  Stock Value
                 </th>
                 <th>
-                  Stock Avalibility
+                  Stock Status
                 </th>
+                <th>
+                  Market
+                </th>
+                <th>
+                  Customer Service Rating
+                </th>
+                {/* <th>
+                  User Experience
+                </th> */}
               </tr>
 
               {
 
-                pricingStoreData.map(
+                jsonContextData.retaillersData.competitors.map(
                   (item) => {
                     return (
                       <>
-                        <tr>
+                        <tr className='comparision_table'>
                           <td> {item.name} </td>
                           <td>
-                            <div style={{ width: "200px", height: "10px", }} ><div style={{
-                              backgroundColor: `${item.color}`,
-                              width: `${item.Progress}`, height: "100%"
-                            }} ></div></div>
+                            <div style={{ width: "60px", height: "10px", }} >
+                              <div style={{
+                                backgroundColor: `${item.stock_availability === "In stock" ? "#02842a" : "#ff0000"}`,
+                                width: `${item.sales_percentage}`, height: "100%"
+                              }} ></div>
+                            </div>
                           </td>
-                          <td> {item.value} </td>
-                          <td> {item['Stock Avalibility']} </td>
+                          <td>
+                            {/* {
+                           (( (item.total_price - item.my_price) / item.total_price)  * 100).toFixed(2)
+                           
+                            }% */}
+                            {item.sales_percentage}
+
+                          </td>
+                          {/* <td>
+                            {item.sales}
+                          </td> */}
+                          <td> {item.stock_value} </td>
+                          <td> {item.stock_availability} </td>
+                          <td> {item.market_presence} </td>
+                          <td> {item.customer_service_rating} </td>
+                          {/* <td> {item.user_experience} </td> */}
                         </tr>
                       </>
                     )
@@ -412,114 +579,19 @@ const [newStock , setNewStock] = useState([])
 
 
             </table>
-            {/* name
-Progress
-Price
-Stock */}
           </div>
-          {/* <div className="second" style={{ width: "", margin: "10px 0px"  ,  border:"1px solid black" }} >
-            <div className='compiteterUtility' style={{
-              boxSizing: "border-box"
-              , padding: "20px 28px", backgroundColor: "white",
-              borderRadius: "30px"
-            }}>
-              <h3 style={{ fontSize: "18px" }}>Competiter</h3>
 
-              <div style={compititerProgress}>
-                <h4>Noon</h4>
-                <div style={{ width: "300px", height: "6px", borderRadius: "7px", backgroundColor: "aqua" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Amazon</h4>
-                <div style={{ width: "350px", height: "6px", borderRadius: "7px", backgroundColor: "red" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>SharafDG</h4>
-                <div style={{ width: "340px", height: "6px", borderRadius: "7px", backgroundColor: "orange" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Carrefour</h4>
-                <div style={{ width: "250px", height: "6px", borderRadius: "7px", backgroundColor: "aqua" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Virgin Mega Store</h4>
-                <div style={{ width: "160px", height: "6px", borderRadius: "7px", backgroundColor: "orangered" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Lulu Hyper Market</h4>
-                <div style={{ width: "120px", height: "6px", borderRadius: "7px", backgroundColor: "green" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Jumbo</h4>
-                <div style={{ width: "120px", height: "6px", borderRadius: "7px", backgroundColor: "green" }} ></div>
-              </div>
-              <div style={compititerProgress}>
-                <h4>Jackys Electronics</h4>
-                <div style={{ width: "120px", height: "6px", borderRadius: "7px", backgroundColor: "green" }} ></div>
-              </div>
-            </div>
-          </div> */}
-          {/* <div className="second" style={{ margin: "10px 0px" }} >
-            <div style={{
-              boxSizing: "border-box"
-              , padding: "20px 24px", backgroundColor: "white", display: "flex", flexDirection: "column",
-              gap: "7px", borderRadius: "30px"
-            }}>
-              <h3 style={{ fontSize: "18px" }}>Stock Out</h3>
-
-              {
-                stockData.map(
-                  (item) => {
-                    return (
-                      <>
-                        <div style={{ display: "flex", gap: "10px", marginTop: "14px" }}>
-                          <div style={{ width: "70px", padding: "0px 10px", boxSizing: "border-box", borderRadius: "4px", backgroundColor: "#c6cecf" }}>
-                            {item.productQuantity}
-                          </div>
-                          <div style={{ width: "100px", textAlign: "center", height: "25px", borderRadius: "4px", backgroundColor: "#c6cecf" }}>
-                            {item.status}
-                          </div>
-                        </div>
-                      </>
-                    )
-                  }
-                )
-              }
-
-
-            </div>
-          </div> */}
           {/* this is pie chart div or box */}
-          <div style={{
-            backgroundColor: "white", margin: "10px 0px", borderRadius: "20px", display: "flex", flexDirection: "column", justifyContent: "", alignItems: "center",
-            border: "", height: "440px"
-          }}>
-            <div style={{ fontSize: "18px", fontWeight: "500", marginTop: "10px", }}>
-              Position
-            </div>
-            <div style={{ border: "" }} >
-              {<Example width="290" height={250} radius="80" />}
-            </div>
-            <div>
-              <div style={{display:"flex"  , gap:"10px" }}>
-                <div style={{ ...indikateColorBox , backgroundColor:"#009653"}}></div>
-                <div>Expensive than us</div>
-              </div>
-              <div style={{display:"flex"  , gap:"10px" }}>
-                <div style={{ ...indikateColorBox , backgroundColor:"#f70000 "}}></div>
-                <div>Cheaper than us</div>
-              </div>
-              <div style={{display:"flex"  , gap:"10px" }}>
-                <div style={{ ...indikateColorBox, backgroundColor:"#ff8700 "}}></div>
-                <div>Slightly cheaper than us</div>
-              </div>
-              <div style={{display:"flex"  , gap:"10px" }}>
-                <div style={{ ...indikateColorBox , backgroundColor:"#00a1e9 "}}></div>
-                <div>Equal to us</div>
-              </div>
+          <div style={{ height: "", width: "", padding: "20px 20px", gap: "", display: "flex", flexDirection: "column", boxSizing: "border-box", backgroundColor: "white", borderRadius: "20px", flexGrow: "1" }}>
+            <div style={{ fontSize: "18px", textAlign: "center", fontWeight: "500" }} >Price Trend of last 4 months</div>
+            <div style={{
+              border: "", fontSize: "14px",
+              display: "flex", justifyContent: "center"
+            }}>  <LineGrapgh width={800} height={350} leftMargin={0} />  </div>
 
-            </div>
+
           </div>
+
         </div>
       </div>
     </>

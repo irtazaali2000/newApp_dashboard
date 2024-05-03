@@ -1,0 +1,263 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+.header{
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    position: sticky;
+    top: 63px;
+    background-color: #f3f4f7;
+}
+.selectionRetailler{
+    /* display: flex; */
+}
+.selectionRetailler select{
+    outline: none;
+    margin: 0px 10px;
+    width: 120px;
+
+    background-color: #a5bccf;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px 5px;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    /* border: 1px solid black; */
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+.productNamePriceUrl{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.productNamePriceUrl i{
+    font-size: 18px;
+}
+.img{
+    width: 65px;
+    /* height: 120px; */
+}
+.img img{
+    width: 100%;
+}
+.productNamePrice{
+    /* border: 1px solid black; */
+    width: 230px;
+}
+.productNamePrice a{
+    text-decoration: none;
+}
+.productNamePrice h5{
+    font-size: 18px;
+    color: black;
+    /* color: red; */
+}
+.productListing{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 23px;
+     /* border: 1px solid black; */
+     align-items: start;
+     justify-content: space-between;
+     margin-top: 20px;
+}
+
+.productNamePrice div:last-child{
+    font-size: 17px;
+    /* color: red; */
+}
+
+
+.priceTable_retaillers{
+    display: flex;
+    margin-right: 10px;
+}
+.retaillerBox{
+    width: 120px;
+    height: 60px;
+    /* border: 1px solid black; */
+    border-radius: 4px;
+    margin: 0px 10px;
+    background-color: white;
+    -webkit-box-shadow: 0 0 5px 2px grey;
+    -moz-box-shadow: 0 0 5px 2px grey;
+    box-shadow: 0 0 5px 2px grey;
+    display: flex;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* justify-content: space-between; */
+}
+.stockColor{
+    width: 20px;
+    height: 100%;
+    background-color: red;
+    
+}
+.retaillerValue{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.retaillerPRice{
+    font-weight: bold;
+}
+
+.pricePopup{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0%;
+    left: 0%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+    font-family: "Roboto Condensed", sans-serif;
+}
+.popUp{
+    width: 520px;
+    /* height: 320px; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+
+    /* justify-content: center; */
+    align-items:center ;
+    padding: 20px 0px;
+    box-sizing: border-box;
+}
+.crossIcon{
+    position: absolute;
+    top: -5%;
+    left: 97%;
+    font-size: 36px;
+    color: red;
+
+    background-color: white;
+    padding: 0px;
+    /* border-radius: 100%; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.price_net_value p{
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.discountbox{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.watchListPopupDiv{
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 40px;
+}
+.watchListPopupDiv h5{
+    display: flex;
+
+    align-items:center ;
+    gap: 10px;
+}
+.gmailIcon{
+    font-size: 40px;
+    color: #ff9300;
+}
+
+.searchBar input{
+    width:300px;
+    outline: none;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #a5bccf;
+    padding: 0px 36px;
+
+}
+.searchBar{
+    position: relative;
+}
+.searchBarIcon{
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    font-size: 20px;
+}
+.selectionRetailler{
+
+}
+
+.popUpForPricingStatusBody{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popUpForPricingStatusChild{
+    width: 500px;
+    /* height: 300px; */
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px 25px;
+}
+.popUpForPricingStatusChild table{
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 10px 14px;
+
+}
+.popUpForPricingStatusChild table tr th{
+    font-size: 22px;
+
+}
+.selectFilterPrices select{
+    border: none;
+    outline: none;
+    padding: 7px 20px ;
+    border-radius: 6px;
+    background-color:white;
+    border: 1px solid  #c6cecf;
+    width: 150px;
+}
+.priceLowHigh tr td , th{
+    border: 2px solid rgb(110, 110, 110);
+}

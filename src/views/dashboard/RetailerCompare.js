@@ -53,10 +53,10 @@ function RetailerCompare() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Line type="linear" dataKey="Noon" stroke="#8884d8" />
-                        <Line type="linear" dataKey="Carrefour" stroke="#82ca9d" />
-                        <Line type="linear" dataKey="Shein" stroke="#82ca9d" />
-                        <Line type="linear" dataKey="Namshi" stroke="#82ca9d" />
+                        <Line type="linear" dataKey="Noon" stroke="#8ED1FC" />
+                        <Line type="linear" dataKey="Carrefour" stroke="#FFA07A" />
+                        <Line type="linear" dataKey="Shein" stroke="#98FB98" />
+                        <Line type="linear" dataKey="Namshi" stroke="#FFD700" />
                     </LineChart>
                 </CCardBody>
 

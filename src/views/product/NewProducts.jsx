@@ -1,37 +1,40 @@
 import React, { useEffect } from 'react'
 import NewContext from '../marketAnalytics/context/NewContext';
-import { useContext , useState } from 'react';
+import { useContext, useState } from 'react';
 import Product from './Product';
-
+import JsonContext from '../global context/JsonContext';
 function NewProducts() {
-    const {productData_detail} = useContext(NewContext)
-    const [productProperty , setProductProperty] = useState(
-        [
-            {
-                property:"Brand",
-                propertyValue : productData_detail.productDetail.productPoints.brand
-            },
-            {
-                property:"Country",
-                propertyValue : productData_detail.productDetail.productPoints["Country of Origin"]
-            },
-           
-            
-        ]
-    )
 
-    const [about , setAbout]  = useState(
-        [
-           "Computer mouse for easily navigating a computer interface; click, scroll, and more",
-           "USB-A wired connection; if existing device only supports USB-C, an additional adapter will be required",
-           "High-definition (1000 dpi) optical tracking ensures responsive cursor control for precise tracking and easy text selection",
-           "3 buttons offer effortless fingertip contro",
-           "Plug-and-go ready for instant use",
+    let jsonContextData = useContext(JsonContext)
+    console.log(jsonContextData.productDetail , "product page")
+    const { productData_detail } = useContext(NewContext)
+    // const allContextData = useContext(NewContext)
+    // const [productProperty, setProductProperty] = useState(
+    //     [
+    //         {
+    //             property: "Brand",
+    //             propertyValue: productData_detail.productDetail.productPoints.brand
+    //         },
+    //         {
+    //             property: "Country",
+    //             propertyValue: productData_detail.productDetail.productPoints["Country of Origin"]
+    //         },
 
-        ]
-    )
-    const [data , setData] = useState([])
-    
+
+    //     ]
+    // )
+
+    // const [about, setAbout] = useState(
+    //     [
+    //         "Computer mouse for easily navigating a computer interface; click, scroll, and more",
+    //         "USB-A wired connection; if existing device only supports USB-C, an additional adapter will be required",
+    //         "High-definition (1000 dpi) optical tracking ensures responsive cursor control for precise tracking and easy text selection",
+    //         "3 buttons offer effortless fingertip contro",
+    //         "Plug-and-go ready for instant use",
+    //     ]
+    // )
+    const [data, setData] = useState([])
+
     // [
     //     // { name: 'Jan', Noon : 4000,  Carrefour : 2400, Shein : 2400 },
     //     // { name: 'Feb', Noon: 3000, Carrefour: 12398, Shein: 210 },
@@ -46,42 +49,100 @@ function NewProducts() {
     //     // { name: 'Nov', Noon: 3490, Carrefour: 4300, Shein: 2100 },
     //     // { name: 'Dec', Noon: 3490, Carrefour: 4300, Shein: 2100 },
     // ];
-    let [arr , setArr] = useState([])
-    // let i = 1
-    useEffect(
-        ()=>{
-            // console.log(productData_detail.productDetail.productPoints["Country of Origin"], "product data will be show at here")
-            
-            // console.log(productData_detail.Retailer_2[1] , "from new product")
-        //    arr.push(productData_detail.Retailer_1[1] , productData_detail.Retailer_2[1] , productData_detail.Retailer_3[1])
-        // setArr([])
-        // //    console.log(productData_detail.graphData , "data")
-        //    for (let i = 0; i < productData_detail.graphData.length; i++) {
-        //     // console.log(Object.values(productData_detail.graphData[i]) , "only keys")
-        //     arr.push(Object.values(productData_detail.graphData[i][1]))
-        //     setArr(
-        //         (prev)=>{
-        //             return [...prev , Object.values(productData_detail.graphData[i][1])]
-        //         }
-        //     )
-        //    }
+    // let [arr, setArr] = useState([])
+    // let [dataArr, setDataArr] = useState([])
+    // let [priceData, setPriceData] = useState([])
+    // // let i = 1
+    // let [ourPrice, setOurPrice] = useState()
+    // let [priceCompareHiger, setPriceCompareHiger] = useState()
+    // let [priceCompareLower, setPriceCompareLower] = useState([])
+    // let [ourPRICES, setOurPRICES] = useState(Number(productData_detail.productPrice.slice(1)))
+    // useEffect(
+    //     () => {
+    //         // console.log(productData_detail.productDetail.productPoints["Country of Origin"], "product data will be show at here")
 
-           setData(productData_detail.graphData)
-           
+    //         // console.log(productData_detail.Retailer_2[1] , "from new product")
+    //         //    arr.push(productData_detail.Retailer_1[1] , productData_detail.Retailer_2[1] , productData_detail.Retailer_3[1])
+    //         // setArr([])
+    //         // //    console.log(productData_detail.graphData , "data")
+    //         //    for (let i = 0; i < productData_detail.graphData.length; i++) {
+    //         //     // console.log(Object.values(productData_detail.graphData[i]) , "only keys")
+    //         //     arr.push(Object.values(productData_detail.graphData[i][1]))
+    //         //     setArr(
+    //         //         (prev)=>{
+    //         //             return [...prev , Object.values(productData_detail.graphData[i][1])]
+    //         //         }
+    //         //     )
+    //         //    }
 
-            // console.log("okay")
-        } , []
+    //         setData(productData_detail.graphData)
+    //         //    console.log(productDsata_detail.graphData)
+    //         //    setArr([])
+    //         for (let i = 0; i < productData_detail.graphData.length; i++) {
+    //             setDataArr(
+    //                 dataArr.push(productData_detail.graphData[i].name)
+    //             )
+    //         }
+
+
+    //         for (let j = 0; j < productData_detail.graphData.length; j++) {
+
+
+    //             if (Number(productData_detail.productPrice.slice(1)) < productData_detail.graphData[j].price) {
+    //                 // setPriceCompareLower(priceCompareLower.push(productData_detail.graphData[j].price))
+    //                 // setPriceCompareLower()
+    //                 // console.log(productData_detail.graphData[j].price, "lower")
+    //                 // console.log('cheaper' , productData_detail.graphData[j].price)
+    //                 // console.log(priceCompareLower,"array low")
+    //             }
+    //             else {
+    //                 // console.log(productData_detail.graphData[j].price, "higher")
+    //                 // setPriceCompareHiger(priceCompareHiger.push(productData_detail.graphData[j].price))
+    //                 // setPriceCompareHiger(
+    //                 //     ()=>{
+    //                 //         return [...productData_detail.graphData[j].price ]
+    //                 //     }
+    //                 // )
+    //                 // console.log('higher' , productData_detail.graphData[j].price)
+    //                 // console.log(priceCompareHiger , "array high")
+    //             }
+
+    //             setPriceData(
+    //                 priceData.push(productData_detail.graphData[j].price)
+    //             )
+    //             // console.log("check ptrice type" ,typeof productData_detail.graphData[j].price )
+    //         }
+    //         // console.log() , "all context data")
+    //         // allContextData.setPricesDATA(productData_detail.graphData)
+    //         //    for (let i = 0; i < array.length; i++) {
+    //         //    }
+    //         //    console.log(priceData , "here is an array") 
+
+    //         // setOurPrice(productData_detail.productPrice)
+    //         // console.log("okay")
+
+
+
+    //         // console.log(allContextData.ourPrices , "oru price froim context api")
+    //     }, []
+    // )
+    return (
+        <>
+            {/* priceCompareHiger */}
+            {/* priceCompareLower */}
+            <Product
+            //  priceHigh={priceCompareHiger} priceLow={priceCompareLower} ourProductPrice={jsonContextData.productDetail.my_price} pricesPieChart={priceData} arr={dataArr} pieData={arr} price={jsonContextData.productDetail.my_price}
+            lineGraph={jsonContextData.lineGraphData}
+                productImgUrl={jsonContextData.productDetail.url} price={jsonContextData.productDetail.
+                    my_price}
+                productName={jsonContextData.productDetail.name} productProperty={{}}
+                about="About this item" aboutProperty={jsonContextData.productDetail.about} data={data}
+                brandName={jsonContextData.productDetail.Brand}
+                // points={productData_detail.productDetail.productPoints}
+            />
+        </>
+// lineGraphData
     )
-  return (
-    <>
-    <Product pieData={arr} price={productData_detail.productPrice}
-                productImgUrl={productData_detail.imageUrl}
-                productName={productData_detail.productName}  productProperty={productProperty} 
-                about="About this item" aboutProperty={productData_detail.productDetail.About} data={data} 
-                points={productData_detail.productDetail.productPoints}
-                />
-    </>
-  )
 }
 
 export default NewProducts;

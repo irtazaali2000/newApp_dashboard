@@ -21,6 +21,17 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    position: relative;
+}
+.crosPopup{
+    position:absolute;
+    top: -10%;
+    left: 95%;
+    cursor: pointer;
+    
+}
+.crosPopup i{
+    font-size: 40px;
 }
 .popup button{
     border: none;

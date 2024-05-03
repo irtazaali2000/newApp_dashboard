@@ -31,26 +31,26 @@ function DetailExplanation() {
                 productName: productData.info.MobilePhones[0].productName,
                 productPrice: "$42.00",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["jacket", "hoodie" , "mens fasion" ],
+                productId: ["mobilePhones", "phones", "mobile", "phone"],
                 productUrl: "/theme/product1",
-                Retailer_1: ["red", 
-                {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
-                   
-                }
-                , 'Out of stock'],
-                Retailer_2: ["green",  {
-                    Namshi : "$39.00",
-                    Trendyol : "$43.00",
-                    Styli:"$47.00",
-                    Adidas :"$50.00",
+                Retailer_1: ["red",
+                    {
+                        Noon: "$41.00",
+                        Carrefour: "$50.00",
+                        Shein: "$51.00",
+
+                    }
+                    , 'Out of stock'],
+                Retailer_2: ["green", {
+                    Namshi: "$39.00",
+                    Trendyol: "$43.00",
+                    Styli: "$47.00",
+                    Adidas: "$50.00",
                 }, 'Instock'],
                 Retailer_3: ["orange", {
-                    "Lulu Hyper Market":"$65.00",
-                    Centrepoint :"$54.00",
-                    Max:"$56.00",
+                    "Lulu Hyper Market": "$65.00",
+                    Centrepoint: "$54.00",
+                    Max: "$56.00",
                 }, 'Instock'],
                 Retailer1_price_data: {
                     price_margin: "20%",
@@ -80,11 +80,11 @@ function DetailExplanation() {
                         "A15 Bionic chip. New 6-core CPU with 2 performance and 4 efficiency cores. New 5-core GPU. New 16-core Neural Engine"
                     ]
                 },
-                graphData : [
-                    {name : "Noon" , price :41},
-                    {name : "Carrefour" , price :50},
-                    {name : "Namshi" , price :39},
-                    {name : "Lulu Hyper Market" , price :65},
+                graphData: [
+                    { name: "Noon", price: 41 },
+                    { name: "Carrefour", price: 50 },
+                    { name: "Namshi", price: 39 },
+                    { name: "Lulu Hyper Market", price: 65 },
                 ]
             },
             {
@@ -93,22 +93,22 @@ function DetailExplanation() {
                 productPrice: "$25.000",
                 productUrl: "/theme/product2",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["jacket", "hoodie" , "mens fasion" , "mens"],
+                productId: ["perfume", "men perfumes", "perfumes"],
                 Retailer_1: ["green", {
-                    Noon : "$61.00",
-                    Carrefour :"$30.00",
-                    Shein : "$31.00",
-                   }, 'Instock'],
+                    Noon: "$61.00",
+                    Carrefour: "$30.00",
+                    Shein: "$31.00",
+                }, 'Instock'],
                 Retailer_2: ["red", {
-                    Namshi : "$49.00",
-                    Trendyol : "$34.00",
-                    Styli:"$55.00",
-                    Adidas :"$44.00",
+                    Namshi: "$49.00",
+                    Trendyol: "$34.00",
+                    Styli: "$55.00",
+                    Adidas: "$44.00",
                 }, 'Out of Stock'],
                 Retailer_3: ["orange", {
-                    "Lulu Hyper Market":"$44.00",
-                    Centrepoint :"$65.00",
-                    Max:"$77.00",
+                    "Lulu Hyper Market": "$44.00",
+                    Centrepoint: "$65.00",
+                    Max: "$77.00",
                 }, 'Instock'],
                 Retailer1_price_data: {
                     price_margin: "18%",
@@ -138,11 +138,11 @@ function DetailExplanation() {
                         "This Buccaneers Hoodie features a big, full-color print that gives it a super soft hand feel and will last for years to come."
                     ]
                 },
-                graphData : [
-                    {name : "Noon" , price :61},
-                    {name : "Carrefour" , price :61},
-                    {name : "Namshi" , price :49},
-                    {name : "Lulu Hyper Market" , price :44},
+                graphData: [
+                    { name: "Noon", price: 61 },
+                    { name: "Carrefour", price: 61 },
+                    { name: "Namshi", price: 49 },
+                    { name: "Lulu Hyper Market", price: 44 },
                 ]
             },
             {
@@ -151,23 +151,23 @@ function DetailExplanation() {
                 productPrice: "$106.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["apple", "watch" , "apple watch" ],
+                productId: ["men clothing", "clothings", "clothing", 'cloths', 'cloth', 'men cloths'],
                 Retailer_1: ["green", {
-                    Noon : "$48.00",
-                    Carrefour :"$54.00",
-                    Shein : "$56.00",
-                   
+                    Noon: "$48.00",
+                    Carrefour: "$54.00",
+                    Shein: "$56.00",
+
                 }, 'Instock'],
-                Retailer_2: ["green",  {
-                    Namshi : "$39.00",
-                    Trendyol : "$66.00",
-                    Styli:"$57.00",
-                    Adidas :"$77.00",
+                Retailer_2: ["green", {
+                    Namshi: "$39.00",
+                    Trendyol: "$66.00",
+                    Styli: "$57.00",
+                    Adidas: "$77.00",
                 }, 'Instock'],
-                Retailer_3: ["red",  {
-                    "Lulu Hyper Market":"$70.00",
-                    Centrepoint :"$90.00",
-                    Max:"$120.00",
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market": "$70.00",
+                    Centrepoint: "$90.00",
+                    Max: "$120.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -190,13 +190,13 @@ function DetailExplanation() {
                         brand: "Apple",
                         "Country of Origin": "UK",
                     },
-                    About:productData.info.Clothing[0].about
+                    About: productData.info.Clothing[0].about
                 },
-                graphData : [
-                    {name : "Noon" , price :48},
-                    {name : "Carrefour" , price :54},
-                    {name : "Namshi" , price :39},
-                    {name : "Lulu Hyper Market" , price :70},
+                graphData: [
+                    { name: "Noon", price: 48 },
+                    { name: "Carrefour", price: 54 },
+                    { name: "Namshi", price: 39 },
+                    { name: "Lulu Hyper Market", price: 70 },
                 ]
             },
             {
@@ -205,23 +205,23 @@ function DetailExplanation() {
                 productPrice: "$106.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["shoes" , "shoe" , "Adidas" , "adidas"],
+                productId: ["shoes", "shoe"],
                 Retailer_1: ["red", {
-                    Noon : "$40.00",
-                    Carrefour :"$87.00",
-                    Shein : "$47.00",
-                   
+                    Noon: "$40.00",
+                    Carrefour: "$87.00",
+                    Shein: "$47.00",
+
                 }, 'Out of Stock'],
-                Retailer_2: ["green",   {
-                    Namshi : "$76.00",
-                    Trendyol : "$70.00",
-                    Styli:"$60.00",
-                    Adidas :"$50.00",
+                Retailer_2: ["green", {
+                    Namshi: "$76.00",
+                    Trendyol: "$70.00",
+                    Styli: "$60.00",
+                    Adidas: "$50.00",
                 }, 'Instock'],
                 Retailer_3: ["red", {
-                    "Lulu Hyper Market":"$77.00",
-                    Centrepoint :"$58.00",
-                    Max:"$89.00",
+                    "Lulu Hyper Market": "$77.00",
+                    Centrepoint: "$58.00",
+                    Max: "$89.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -246,11 +246,11 @@ function DetailExplanation() {
                     },
                     About: productData.info.shoes[0].about
                 },
-                graphData : [
-                    {name : "Noon" , price :40},
-                    {name : "Carrefour" , price :87},
-                    {name : "Namshi" , price :76},
-                    {name : "Lulu Hyper Market" , price :77},
+                graphData: [
+                    { name: "Noon", price: 40 },
+                    { name: "Carrefour", price: 87 },
+                    { name: "Namshi", price: 76 },
+                    { name: "Lulu Hyper Market", price: 77 },
                 ]
             },
             {
@@ -259,23 +259,23 @@ function DetailExplanation() {
                 productPrice: "$56.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["mens fasion" , "shirt" , "shirts" , "shirt for mens"],
+                productId: ["mens caps", "cap", "caps"],
                 Retailer_1: ["red", {
-                    Noon : "$76.00",
-                    Carrefour :"$33.00",
-                    Shein : "$66.00",
-                   
+                    Noon: "$76.00",
+                    Carrefour: "$33.00",
+                    Shein: "$66.00",
+
                 }, 'Out of Stock'],
                 Retailer_2: ["green", {
-                    Noon : "$78.00",
-                    Carrefour :"$52.00",
-                    Shein : "$88.00",
-                   
+                    Noon: "$78.00",
+                    Carrefour: "$52.00",
+                    Shein: "$88.00",
+
                 }, 'Instock'],
-                Retailer_3: ["red",  {
-                    "Lulu Hyper Market":"$99.00",
-                    Centrepoint :"$78.00",
-                    Max:"$76.00",
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market": "$99.00",
+                    Centrepoint: "$78.00",
+                    Max: "$76.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -298,13 +298,13 @@ function DetailExplanation() {
                         brand: "Wrangler Authentics Store",
                         "Country of Origin": "USA",
                     },
-                    About:productData.info.caps[0].about
+                    About: productData.info.caps[0].about
                 },
-                graphData : [
-                    {name : "Noon" , price :76},
-                    {name : "Carrefour" , price :33},
-                    {name : "Namshi" , price :88},
-                    {name : "Lulu Hyper Market" , price :99},
+                graphData: [
+                    { name: "Noon", price: 76 },
+                    { name: "Carrefour", price: 33 },
+                    { name: "Namshi", price: 88 },
+                    { name: "Lulu Hyper Market", price: 99 },
                 ]
             },
             {
@@ -313,23 +313,23 @@ function DetailExplanation() {
                 productPrice: "$56.000",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["running shoes" , "shoes for mens" , "shoes"],
+                productId: ["bag", "bags", "man bags"],
                 Retailer_1: ["red", {
-                    Noon : "$66.00",
-                    Carrefour :"$60.00",
-                    Shein : "$59.00",
-                   
+                    Noon: "$66.00",
+                    Carrefour: "$60.00",
+                    Shein: "$59.00",
+
                 }, 'Out of Stock'],
                 Retailer_2: ["green", {
-                    Noon : "$46.00",
-                    Carrefour :"$39.00",
-                    Shein : "$90.00",
-                   
+                    Noon: "$46.00",
+                    Carrefour: "$39.00",
+                    Shein: "$90.00",
+
                 }, 'Instock'],
-                Retailer_3: ["red",  {
-                    "Lulu Hyper Market":"$69.00",
-                    Centrepoint :"$95.00",
-                    Max:"$130.00",
+                Retailer_3: ["red", {
+                    "Lulu Hyper Market": "$69.00",
+                    Centrepoint: "$95.00",
+                    Max: "$130.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -354,11 +354,11 @@ function DetailExplanation() {
                     },
                     About: productData.info.bags[0].about
                 },
-                graphData : [
-                    {name : "Noon" , price :66},
-                    {name : "Carrefour" , price :60},
-                    {name : "Namshi" , price :90},
-                    {name : "Lulu Hyper Market" , price :69},
+                graphData: [
+                    { name: "Noon", price: 66 },
+                    { name: "Carrefour", price: 60 },
+                    { name: "Namshi", price: 90 },
+                    { name: "Lulu Hyper Market", price: 69 },
                 ]
             },
             {
@@ -367,24 +367,24 @@ function DetailExplanation() {
                 productPrice: "$76.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men perfumes", "mens", 'perfumes'],
+                productId: ["mobile", "mobile phone", 'phones'],
                 Retailer_1: ["red", {
-                    Noon : "$65.00",
-                    Carrefour :"$65.00",
-                    Shein : "$76.00",
+                    Noon: "$65.00",
+                    Carrefour: "$65.00",
+                    Shein: "$76.00",
                 }, 'Out of Stock'],
-                Retailer_2: ["green", 
-                {
-                                  Namshi : "$65.00",
-                                  Trendyol : "$77.00",
-                                  Styli:"$87.00",
-                                  Adidas :"$66.00",
-                              }
-              , 'Instock'],
+                Retailer_2: ["green",
+                    {
+                        Namshi: "$65.00",
+                        Trendyol: "$77.00",
+                        Styli: "$87.00",
+                        Adidas: "$66.00",
+                    }
+                    , 'Instock'],
                 Retailer_3: ["red", {
-                    "Lulu Hyper Market":"$85.00",
-                    Centrepoint :"$100.00",
-                    Max:"$47.00",
+                    "Lulu Hyper Market": "$85.00",
+                    Centrepoint: "$100.00",
+                    Max: "$47.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -407,13 +407,13 @@ function DetailExplanation() {
                         brand: "Versace ",
                         "Country of Origin": "UK",
                     },
-                    About:productData.info.MobilePhones[1].about
+                    About: productData.info.MobilePhones[1].about
                 },
-                graphData : [
-                    {name : "Noon" , price :65},
-                    {name : "Carrefour" , price :69},
-                    {name : "Namshi" , price :65},
-                    {name : "Lulu Hyper Market" , price :85},
+                graphData: [
+                    { name: "Noon", price: 65 },
+                    { name: "Carrefour", price: 69 },
+                    { name: "Namshi", price: 65 },
+                    { name: "Lulu Hyper Market", price: 85 },
                 ]
             },
             {
@@ -422,22 +422,22 @@ function DetailExplanation() {
                 productPrice: "$40.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men bag", "bags", 'Bags', "Bag"],
+                productId: ["men perfume", "perfumes", 'perfume'],
                 Retailer_1: ["red", {
-                    Noon : "$77.00",
-                    Carrefour :"$73.00",
-                    Shein : "$80.00",
+                    Noon: "$77.00",
+                    Carrefour: "$73.00",
+                    Shein: "$80.00",
                 }, 'Out of Stock'],
-                Retailer_2: ["green",  {
-                    Namshi : "$81.00",
-                    Trendyol : "$120.00",
-                    Styli:"$76.00",
-                    Adidas :"$55.00",
+                Retailer_2: ["green", {
+                    Namshi: "$81.00",
+                    Trendyol: "$120.00",
+                    Styli: "$76.00",
+                    Adidas: "$55.00",
                 }, 'Instock'],
                 Retailer_3: ["red", {
-                    "Lulu Hyper Market":"$89.00",
-                    Centrepoint :"$100.00",
-                    Max:"$78.00",
+                    "Lulu Hyper Market": "$89.00",
+                    Centrepoint: "$100.00",
+                    Max: "$78.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -462,11 +462,11 @@ function DetailExplanation() {
                     },
                     About: productData.info.perfume[1].about
                 },
-                graphData : [
-                    {name : "Noon" , price :77},
-                    {name : "Carrefour" , price :73},
-                    {name : "Namshi" , price :81},
-                    {name : "Lulu Hyper Market" , price :89},
+                graphData: [
+                    { name: "Noon", price: 77 },
+                    { name: "Carrefour", price: 73 },
+                    { name: "Namshi", price: 81 },
+                    { name: "Lulu Hyper Market", price: 89 },
                 ]
             },
             {
@@ -475,25 +475,25 @@ function DetailExplanation() {
                 productPrice: "$20.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men Cap", "Caps", 'cap'],
+                productId: ["men clothing", "clothing", 'clothings', 'cloths', 'cloth'],
                 Retailer_1: ["red", {
-                    Noon : "$85.00",
-                    Carrefour :"$79.00",
-                    Shein : "$89.00",
-                   
+                    Noon: "$85.00",
+                    Carrefour: "$79.00",
+                    Shein: "$89.00",
+
                 }, 'Out of Stock'],
                 Retailer_2: ["green", {
-                    Noon : "$78.00",
-                    Carrefour :"$120.00",
-                    Shein : "$99.00",
-                   
+                    Noon: "$78.00",
+                    Carrefour: "$120.00",
+                    Shein: "$99.00",
+
                 }, 'Instock'],
-                Retailer_3: ["red", 
-                {
-                                   "Lulu Hyper Market":"$65.00",
-                                   Centrepoint :"$54.00",
-                                   Max:"$56.00",
-                               }, 'Out of Stock'],
+                Retailer_3: ["red",
+                    {
+                        "Lulu Hyper Market": "$65.00",
+                        Centrepoint: "$54.00",
+                        Max: "$56.00",
+                    }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
                     net_margin: "14%",
@@ -515,13 +515,13 @@ function DetailExplanation() {
                         brand: "Travelon",
                         "Country of Origin": "USA",
                     },
-                    About:productData.info.Clothing[1].about
+                    About: productData.info.Clothing[1].about
                 },
-                graphData : [
-                    {name : "Noon" , price :85},
-                    {name : "Carrefour" , price :79},
-                    {name : "Namshi" , price :99},
-                    {name : "Lulu Hyper Market" , price :65},
+                graphData: [
+                    { name: "Noon", price: 85 },
+                    { name: "Carrefour", price: 79 },
+                    { name: "Namshi", price: 99 },
+                    { name: "Lulu Hyper Market", price: 65 },
                 ]
             },
             {
@@ -530,22 +530,22 @@ function DetailExplanation() {
                 productPrice: "$120.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men cloth", "cloths", 'cloths for men'],
+                productId: ["men shoes", "shoe", 'shoes'],
                 Retailer_1: ["red", {
-                    Noon : "$65.00",
-                    Carrefour :"$86.00",
-                    Shein : "$88.00",
+                    Noon: "$65.00",
+                    Carrefour: "$86.00",
+                    Shein: "$88.00",
                 }, 'Out of Stock'],
-                Retailer_2: ["green",  {
-                    Namshi : "$76.00",
-                    Trendyol : "$43.00",
-                    Styli:"$47.00",
-                    Adidas :"$50.00",
+                Retailer_2: ["green", {
+                    Namshi: "$76.00",
+                    Trendyol: "$43.00",
+                    Styli: "$47.00",
+                    Adidas: "$50.00",
                 }, 'Instock'],
                 Retailer_3: ["red", {
-                    "Lulu Hyper Market":"$65.00",
-                    Centrepoint :"$54.00",
-                    Max:"$56.00",
+                    "Lulu Hyper Market": "$65.00",
+                    Centrepoint: "$54.00",
+                    Max: "$56.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -568,13 +568,13 @@ function DetailExplanation() {
                         brand: "Xpril Store",
                         "Country of Origin": "USA",
                     },
-                    About:productData.info.shoes[0].about
+                    About: productData.info.shoes[0].about
                 },
-                graphData : [
-                    {name : "Noon" , price :65},
-                    {name : "Carrefour" , price :86},
-                    {name : "Namshi" , price :76},
-                    {name : "Lulu Hyper Market" , price :65},
+                graphData: [
+                    { name: "Noon", price: 65 },
+                    { name: "Carrefour", price: 86 },
+                    { name: "Namshi", price: 76 },
+                    { name: "Lulu Hyper Market", price: 65 },
                 ]
             },
             {
@@ -583,24 +583,24 @@ function DetailExplanation() {
                 productPrice: "$200.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men perfumes", "mens", 'perfumes'],
+                productId: ["men caps", "caps", 'cap'],
                 Retailer_1: ["red", {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
-                   
+                    Noon: "$41.00",
+                    Carrefour: "$50.00",
+                    Shein: "$51.00",
+
                 }, 'Out of Stock'],
                 Retailer_2: ["green", {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
-                   
+                    Noon: "$41.00",
+                    Carrefour: "$50.00",
+                    Shein: "$51.00",
+
                 }, 'Instock'],
                 Retailer_3: ["red", {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
-                   
+                    Noon: "$41.00",
+                    Carrefour: "$50.00",
+                    Shein: "$51.00",
+
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -629,11 +629,11 @@ function DetailExplanation() {
                         "This unisex perfume offers a sense of peace and tranquility, creating a secret dimension of deep harmony,"
                     ]
                 },
-                graphData : [
-                    {name : "Noon" , price :41},
-                    {name : "Carrefour" , price :50},
-                    {name : "Namshi" , price :51},
-                    {name : "Lulu Hyper Market" , price :41},
+                graphData: [
+                    { name: "Noon", price: 41 },
+                    { name: "Carrefour", price: 50 },
+                    { name: "Namshi", price: 51 },
+                    { name: "Lulu Hyper Market", price: 41 },
                 ]
             },
             {
@@ -642,21 +642,21 @@ function DetailExplanation() {
                 productPrice: "$200.00",
                 productUrl: "/theme/product3",
                 eyeBtnColor: eyeDarkLight,
-                productId: ["men perfumes", "mens", 'perfumes'],
+                productId: ["bags", "mens bags", 'bag'],
                 Retailer_1: ["red", {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
+                    Noon: "$41.00",
+                    Carrefour: "$50.00",
+                    Shein: "$51.00",
                 }, 'Out of Stock'],
                 Retailer_2: ["green", {
-                    Noon : "$41.00",
-                    Carrefour :"$50.00",
-                    Shein : "$51.00",
+                    Noon: "$41.00",
+                    Carrefour: "$50.00",
+                    Shein: "$51.00",
                 }, 'Instock'],
                 Retailer_3: ["red", {
-                    "Lulu Hyper Market":"$65.00",
-                    Centrepoint :"$54.00",
-                    Max:"$56.00",
+                    "Lulu Hyper Market": "$65.00",
+                    Centrepoint: "$54.00",
+                    Max: "$56.00",
                 }, 'Out of Stock'],
                 Retailer1_price_data: {
                     price_margin: "12%",
@@ -681,45 +681,85 @@ function DetailExplanation() {
                     },
                     About: productData.info.bags[1].about
                 },
-                graphData : [
-                    {name : "Noon" , price :41},
-                    {name : "Carrefour" , price :50},
-                    {name : "Namshi" , price :51},
-                    {name : "Lulu Hyper Market" , price :41},
+                graphData: [
+                    { name: "Noon", price: 41 },
+                    { name: "Carrefour", price: 50 },
+                    { name: "Namshi", price: 51 },
+                    { name: "Lulu Hyper Market", price: 41 },
                 ]
             },
         ])
 
-
+    const [newData, setNewData] = useState([])
 
     const [searchCategory, setSearchCategory] = useState()
-    const [array , setArray] = useState(
+    const [array, setArray] = useState(
         []
     )
+    function serachChanging(e) {
+        setSearchCategory(e.target.value)
+        console.log(searchCategory)
+        // for (let i = 0; i < dataLopping.length; i++) {
+        //     // console.log(dataLopping[i].productId)
+        //     for (let j = 0; j < dataLopping[i].productId.length; j++) {
+        //         if(searchCategory === dataLopping[i].productId[j])
+        //         {
+        //             console.log(dataLopping[i].productId)
+        //             console.log(dataLopping[i])
+
+        //         //   setDataLooping(dataLopping.push(dataLopping[i]))
+        //             setDataLooping((prev) => {
+        //                 return [ dataLopping[i], ...prev]
+        //             }) 
+        //             console.log(dataLopping[i]  , "from looping searching ")
+        //             // console.log(array)
+        //         }
+        //         else{
+        // // setDataLooping([])
+
+        //         }
+
+        //     }
+        // }
+        // (e) => { setSearchCategory(e.target.value)
+    }
     useEffect(
         () => {
+            setNewData([])
             // console.log(dataLopping)
             for (let i = 0; i < dataLopping.length; i++) {
                 // console.log(dataLopping[i].productId)
+                if(dataLopping[i].productId.includes(searchCategory))
+                {
+                    console.log(dataLopping[i].productId)
+                }
+                
+            }
+            for (let i = 0; i < dataLopping.length; i++) {
+                // console.log(dataLopping[i].productId)
                 for (let j = 0; j < dataLopping[i].productId.length; j++) {
-                    if(searchCategory === dataLopping[i].productId[j])
-                    {
-                        console.log(dataLopping[i].productId)
-                        console.log(dataLopping[i])
-                        
-                      
+                    
+                    if (searchCategory === dataLopping[i].productId[j]) {
+                        // console.log(dataLopping[i].productId)
+                        // console.log(dataLopping[i])
+
+                        //   setNewData(newData.push(dataLopping[i]))
                         setDataLooping((prev) => {
-                            return [ dataLopping[i], ...prev]
-                        }) 
+                            return [dataLopping[i], ...prev]
+                        })
+                        // console.log(dataLopping[i]  , "from looping searching ")
                         // console.log(array)
                     }
-                    else{
-            // setDataLooping([])
-                        
+                    else {
+                        // setDataLooping([])
+
                     }
-                    
+
                 }
             }
+
+            //  setDataLooping(newData)
+            // console.log(newData, 'from new data')
         }, [searchCategory]
     )
     const [addedProductVal, setAddedProductVal] = useState(0)
@@ -818,9 +858,12 @@ function DetailExplanation() {
 
     function sendData(data) {
         return () => {
+            productData.setPricesDATA(data.graphData)
+            productData.setOurPrices(data.productPrice)
             // console.log(data)
             // console.log()
             productData.setProductData_detail(data)
+            console.log(data , "grapfg")
         }
     }
 
@@ -840,7 +883,10 @@ function DetailExplanation() {
                     <div className='popup' >
                         <h4><i class="fa-solid fa-eye"></i> {addedProductVal}  Product are added to watch list successfully</h4>
                         <div style={{ display: "flex", alignItems: "center" }}><i style={{ fontSize: "70px", color: "#ff9900" }} class="fa-solid fa-envelope"></i><h5>You will be alerted with price and stock changes</h5></div>
-                        <div style={{ textAlign: "center" }}> <button onClick={nonePopup} >Okay</button></div>
+                        <div className='crosPopup' style={{ textAlign: "center" }}>
+                            {/* <button  >OK</button> */}
+                            <i className='crosIcon' onClick={nonePopup} class="fa-solid fa-circle-xmark"></i>
+                        </div>
                     </div>
                 </div>
                 <div className='popupBody' style={priceTagPopup}>
@@ -852,7 +898,7 @@ function DetailExplanation() {
                         </div>
 
                         <div>
-                            <h5>price-match margin value : {priceMargin} </h5>
+                            <h5>Price-match margin value : {priceMargin} </h5>
                             <div><h5>Net-match margin value : {netMargin} </h5></div>
                         </div>
                         <div style={{}}>
@@ -868,7 +914,7 @@ function DetailExplanation() {
                                 </tr>
                             </table>
                         </div>
-                        <div style={{ textAlign: "center" }} > <button onClick={priceTagPopupClose} >Okay</button> </div>
+                        <div style={{ textAlign: "center" }} > <button onClick={priceTagPopupClose} >OK</button> </div>
                     </div>
                 </div>
                 <div lg={12} style={{
@@ -882,7 +928,7 @@ function DetailExplanation() {
                             <input style={{
                                 border: "none", outline: "none", width: "400px", borderRadius: "10px", height: "22px", boxSizing: "border-box",
                                 padding: "20px  40px", fontSize: "20px", backgroundColor: "#e6e6f6"
-                            }} type="search" value={searchCategory} onChange={(e) => { setSearchCategory(e.target.value) }} />
+                            }} type="search" value={searchCategory} onChange={serachChanging} />
                         </div>
                     </div>
                     <div style={{ display: "flex", marginRight: "80px" }}>
@@ -919,7 +965,7 @@ function DetailExplanation() {
                                 <option>Lulu Hyper Market</option>
                                 <option>Centrepoint</option>
                                 <option>Max</option>
-                                <option>namshi</option>
+                                <option>Namshi</option>
                             </select>
                         </div>
                     </div>
@@ -942,16 +988,16 @@ function DetailExplanation() {
                     <table className='topHeading' style={{ width: "100%", fontSize: "20px" }} >
                         <tr style={{ backgroundColor: "#f0f3f5", width: "100%", padding: "20px 0px", boxSizing: "border-box", height: "60px", fontSize: "" }}>
                             <th style={{ width: "40%", fontSize: "20px", padding: "0px 10px" }}>
-                                Amazon
+                                Products
                             </th>
                             <th style={{ fontSize: "18px", boxSizing: "border-box" }}>
-                                <span style={{ paddingLeft: "20px" }} > {retailler1Select}</span>
+                                {/* <span style={{ paddingLeft: "20px" }} > {retailler1Select}</span> */}
                             </th>
                             <th style={{ fontSize: "18px", boxSizing: "border-box" }}>
-                                <span style={{ paddingLeft: "20px" }} > {retailler2Select}</span>
+                                {/* <span style={{ paddingLeft: "20px" }} > {retailler2Select}</span> */}
                             </th>
                             <th style={{ fontSize: "18px", boxSizing: "border-box" }}>
-                                <span style={{ paddingLeft: "20px" }} > {retailler3Select}</span>
+                                {/* <span style={{ paddingLeft: "20px" }} > {retailler3Select}</span> */}
                             </th>
                         </tr>
 
@@ -983,7 +1029,7 @@ function DetailExplanation() {
                                                 <td style={{ paddingTop: "30px", position: "" }}>
 
                                                     <div onClick={price_tag_popup(item.Retailer1_price_data.price_margin, item.Retailer1_price_data.net_margin, item.Retailer_1[1]
-                                                      , item.Retailer1_price_data.discount
+                                                        , item.Retailer1_price_data.discount
                                                     )} className='priceTagBody' style={{
                                                         ...propductDetailBox,
                                                     }}>

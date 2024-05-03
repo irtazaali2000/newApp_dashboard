@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FirstPieChart from './FirstPieChart'
 import {
@@ -65,8 +65,10 @@ import PieBold from './Pie'
 // import Example from '../Price Intelligence/Pie'
 import RetailerCompare from './RetailerCompare'
 import { toPadding } from 'chart.js/helpers'
-
+import JsonContext from '../global context/JsonContext'
+import { useContext } from 'react'
 const Dashboard = () => {
+  let JsonStateData = useContext(JsonContext)
   const progressExample = [
     { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
     { title: 'Unique', value: '24.093 Users', percent: 20, color: 'info' },
@@ -192,6 +194,20 @@ const Dashboard = () => {
     width: "20px",
     height: "20px"
   })
+
+  let [countBrand , setCountBrand] = useState([])
+  // useEffect(
+  //   ()=>{
+  //     console.log(JsonStateData.products)
+
+  //     for (let i = 0; i < JsonStateData.products.length; i++) {
+  //       setCountBrand( countBrand.push(JsonStateData.products[i].Brand))
+
+        
+  //     }
+  //     console.log(countBrand.length)
+  //   },[]
+  // )
   return (
     <>
       {/* <WidgetsDropdown className="mb-4" /> */}
@@ -199,17 +215,25 @@ const Dashboard = () => {
         <div className='chartBody'>
           <Card iconColor={{ backgroundColor: "#00c99d" }} icon="fa-solid fa-boxes-stacked" product="24" head="Price Changed" graph={true} percentage="17%" lastUpdate="since last month" />
           <Card iconColor={{ backgroundColor: "red" }} icon="fa-solid fa-boxes-stacked" product="7" head="Price Changed" graph={false} percentage="13%" lastUpdate="since last month" />
-          <CardInstock iconColor={{ backgroundColor: "#ff8a00" }} icon="fa-solid fa-bars-staggered" product="303" head="Competitors" graph="progress" progress="60%" progressBarColor="#626bf0" progressBackgroundColor="#c4c6f8" />
-          <CardInstock iconColor={{ backgroundColor: "#ff8a00" }} icon="fa-solid fa-bars-staggered" product="436" head="My store" graph="progress" progress="74%" progressBarColor="#626bf0" progressBackgroundColor="#c4c6f8" />
+          <CardInstock iconColor={{ backgroundColor: "#ff8a00" }} icon="fa-solid fa-bars-staggered" product="9" head="Competitors" graph="progress" progress="60%" progressBarColor="#626bf0" progressBackgroundColor="#c4c6f8" />
+          <CardInstock iconColor={{ backgroundColor: "#ff8a00" }} icon="fa-solid fa-bars-staggered" product="15" head="My store" graph="progress" progress="74%" progressBarColor="#626bf0" progressBackgroundColor="#c4c6f8" />
         </div>
 
       </CRow>
       <CRow >
-        <div className='chartBody'>
+        <div className='chartBody' style={{}}>
           <LineBarAreaChart />
           {/* <FirstPieChart /> */}
 
-          <RetailerCompare />
+          {/* <RetailerCompare /> */}
+          <div style={{ border: "" }}>
+            <CCard>
+              <CCardHeader>Market Trend of last 4 months</CCardHeader>
+              <CCardBody>
+                <LineGrapgh width={340} height={300} leftMargin={-14} />
+              </CCardBody>
+            </CCard>
+          </div>
 
         </div>
       </CRow>
@@ -220,9 +244,9 @@ const Dashboard = () => {
               Tracking Summary
             </CCardHeader>
             <CCardBody>
-              <TinyChartData name="Products" quantity="494" graphVal="23.76%" graph={true} icon="fa-solid fa-caret-up" color="#00cca2" />
-              <TinyChartData name="Brands" quantity="98" graphVal="13.6%" graph={true} icon="fa-solid fa-caret-down" color="#ff0000" />
-              <TinyChartData name="Categories" quantity="75" graphVal="20.29%" graph={true} icon="fa-solid fa-caret-up" color="#00cca2" />
+              <TinyChartData name="Products" quantity="15" graphVal="23.76%" graph={true} icon="fa-solid fa-caret-up" color="#00cca2" />
+              <TinyChartData name="Brands" quantity="15" graphVal="13.6%" graph={true} icon="fa-solid fa-caret-down" color="#ff0000" />
+              <TinyChartData name="Categories" quantity="5" graphVal="20.29%" graph={true} icon="fa-solid fa-caret-up" color="#00cca2" />
             </CCardBody>
           </CCard>
 
@@ -231,14 +255,14 @@ const Dashboard = () => {
             {/* <LineGrapgh width={500} height={350} leftMargin={14} /> */}
             <div style={{
               backgroundColor: "white", margin: "10px 0px", borderRadius: "20px", display: "flex", flexDirection: "", justifyContent: "", alignItems: "center",
-              border: "", height: "370px", width: "auto" , padding:"0px 10px"
+              border: "", height: "330px", width: "auto", padding: "0px 10px"
             }}>
-              <div style={{display:"flex" , flexDirection:"column" ,alignItems:"center"}}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ fontSize: "18px", fontWeight: "500", marginTop: "10px", }}>
-                  
+
                 </div>
-                <div style={{ border: "" }} >
-                  {<Example width={490} height={250} radius={120}/>}
+                <div style={{}} >
+                  {<Example width={330} height={260} radius={130} />}
                 </div>
               </div>
               <div>

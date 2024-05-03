@@ -94,7 +94,7 @@ function CardInstock(props) {
               {/* <div style={percentage}>
                 <i class={arrow}></i> {props.percentage}
               </div> */}
-              <div>Products</div>
+              <div>Products value</div>
               <div  style={{...{bars}  , display:"flex" , alignItems:"center" , gap:"10px"  } }>
                 <div style={{width:"150px" , height:"5px" , backgroundColor:`${props.progressBackgroundColor}` }}>
                     <div style={{height:"100%" ,width:`${props.progress}` , backgroundColor:`${props.progressBarColor}`}}></div>

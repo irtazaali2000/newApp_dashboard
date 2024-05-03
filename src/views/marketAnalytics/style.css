@@ -56,6 +56,7 @@
     padding-left: 5px;
     box-sizing: border-box;
     padding: 10px 8px;
+    border: none;
 }
 .productNames table tr td{
     /* border: 2px solid  #f3f4f7; */
@@ -98,10 +99,327 @@
 .droperTable tr{
     /* background-color: red; */
     width: 100%;
+    /* border-bottom: 1px solid grey; */
+    -webkit-box-shadow: 0px 0px 5px grey
+    , 0px 0px 5px grey, 
+    0px 0px 5px grey, 
+     0px 0px 5px grey;
+    /* height: 30px; */
+    align-items: center;
+    display: flex;
+
+}
+
+.table_rowsDiv{
+    /* border: 1px solid black; */
+    height: 75px;
+    
 }
 .thWidthClass{
-    width: 13%;
+    /* width: 13%; */
+    /* border: 1px solid black; */
 }
 .thWidthClass1{
+    /* width: 40%; */
+}
+.stockDetailTable tr{
+    
+    box-shadow: 0px 0px 2px rgb(206, 202, 202),
+    0px 0px 2px rgb(206, 202, 202),
+    0px 0px 2px rgb(206, 202, 202),
+    0px 0px 2px rgb(206, 202, 202);
+}
+.stockDetailTable tr td , th{
+/* border: 1px solid grey; */
+}
+.marketTrendPopUp{
+    /* height: 200px; */
+    /* background-color: black; */
+}
+.brandDropdownList{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 7px 7px 7px grey ,
+    7px 7px 7px grey,
+    7px 7px 7px grey,
+    12px 12px 7px grey,
+    12px 12px 7px grey
+    ;
+    padding: 10px 0px;
+}
+.brandDropdownList::-webkit-scrollbar{
+    width: 10px;
+}
+.brandDropdownList::-webkit-scrollbar-thumb{
+    background-color: grey;
+}
+.brandDropdownListItem{
+    width: 100%;
+    text-align: center;
+    /* font-size: 20px; */
+    background-color: white;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    /* height: 60px; */
+
+}
+.brandDropdownListItem table{
+    width: 100%;
+    
+}
+.brandDropdownListItem table tr{
+    width: 100%;
+}
+.brandDropdownListItem table tr th{
+    font-size: 18px;
+    text-align: left;
+}
+.brandDropdownListItem table tr td{
+    height: 60px;
+    text-align: left;
+}
+.brandDropdownListItem table tr td:nth-child(2){
+    text-align: left;
+}
+.brandDropdownListItem table tr th:nth-child(1) {
+    width: 10%;
+}
+.brandDropdownListItem table tr th:nth-child(2) {
+    width: 30%;
+}
+.brandDropdownListItem table tr th:nth-child(3) {
+    width: 20%;
+}
+.brandDropdownListItem table tr th:nth-child(4) {
     width: 40%;
+}
+
+
+.selectionRetailler select{
+    outline: none;
+    margin: 0px 10px;
+    width: 120px;
+
+    background-color: #a5bccf;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px 5px;
+}
+
+/* stockValuesBox
+stockValue
+stockPercentage */
+
+.stockValuesBox{
+    width: 100px;
+    /* height: 50px; */
+    /* border: 1px solid green; */
+    font-size: 15px;
+    text-align: center;
+}
+
+.stockValue{
+
+}
+.stockPercentage{
+    width: 100%;
+    /* height: ; */
+    /* background-color: green; */
+    color: white;
+}
+
+/* popupBody */
+/* popupBox */
+.popupBody{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.popupBox{
+    width: 600px;
+    height: 140px;
+    /* padding: 30px 10px; */
+    padding: 25px 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    background-color: white;
+    display: flex;
+    /* flex-direction: column; */
+    position: relative;
+    
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    /* border: 1px solid black; */
+}
+.popupBox table tr th{
+    font-size: 18px; 
+    padding: 0px 20px;
+}
+.popupBox table tr td{
+    font-size: 17px;
+    padding: 0px 20px;
+
+}
+.popupBox h4{
+    margin-top: 10px;
+}
+.crossPopup{
+    position: absolute;
+    top: -5%;
+    left: 95%;
+    font-size: 36px;
+    color: red;
+    cursor: pointer;
+}
+
+.dropDownMenuForCategory{
+    width: 100%;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    background-color: #ebeff7;
+}
+
+/* popupBody */
+/* popupProductTable */
+.popup_body_product{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99999;
+    display: flex;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+.popupProductTable{
+    /* display: ; */
+    width: 770px;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 10px;
+
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+/* heading */
+/* productsRows */
+.heading{
+    box-shadow: 0px 0px 4px rgb(128, 122, 122),
+    0px 0px 4px rgb(128, 122, 122);
+    padding: 20px;
+    box-sizing: border-box;
+}
+.productsRows{
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 4px rgb(128, 122, 122),
+    0px 0px 4px rgb(128, 122, 122),
+    0px 0px 4px rgb(128, 122, 122),
+    0px 0px 4px rgb(128, 122, 122);
+    box-sizing: border-box;
+    padding: 10px;
+}
+.popupProductTable div{
+    
+}
+.productsRows{
+    width: 100%;
+    /* border-bottom: 1px solid grey; */
+    margin-top: 7px;
+    margin: 20px 0px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+.crossIcon{
+    position: absolute;
+    top: 0%;
+    left:96%;
+    color: red;
+    font-size: 35px;
+    cursor: pointer;
+}
+.img{
+    width: 67px;
+    /* height: 100px; */
+}
+.img img{
+    width: 100%;
+    /* height: 100%; */
+}
+.name_price{
+    /* border: 1px solid black; */
+    width: 150px;
+}
+.name_price span{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.name_price h6{
+    font-size: 17px;
+    font-weight: bold;
+}
+.retailers{
+    display: flex;
+    gap: 30px;
+    justify-content: end;
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+.retailers div{
+    text-align: center!important;
+    /* border: 1px solid black; */
+}
+.productsRowsInnerdata{
+    display: flex;
+    gap: 30px;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.retailers div{
+    width: 80px;
+    text-align: start;
+    /* border: 1px solid black; */
+}
+.prices{
+    align-items: center;
+    font-size: 18px;
+}
+.stockStatus{
+    width: 100%;
+    height: 4px;
+    /* background-color: green; */
+}
+.prices div{
+    text-align: center;
 }

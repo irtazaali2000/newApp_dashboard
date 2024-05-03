@@ -1,5 +1,7 @@
 import { CCard, CCardBody, CCardHeader } from '@coreui/react';
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import JsonContext from '../global context/JsonContext';
 import {
   ComposedChart,
   Line,
@@ -17,56 +19,60 @@ import {
 
 
 function LineBarAreaChart(){
+  let jsonContextData = useContext(JsonContext)
+  let [array , setArray] = useState([])
+  // useEffect(
+  //   ()=>{
+  // for (let i = 0; i < jsonContextData.products.length; i++) {
+  //   for (let j = 0; j < array.length + 1 ; j++) {
+  // console.log(jsonContextData.products , "Context api")
+  //     if(array[j] !== jsonContextData.products.category){
+
+  //     }
+  //   }
+    
+  // }
+  //   } , []
+  // )
+
+  
     const data = [
         {
-          name: 'Jeans',
-          "Margin rate": 30,  
+          name: 'mobile phone',
+          "products": 4,  
           sale: 800,
           Cost: 1400,
           cnt: 490,
         },
         {
-          name: 'Bags',
-          "Margin rate":30 ,
+          name: 'perfumes ',
+          "products": 3,  
           sale: 967,
           Cost: 1506,
           cnt: 590,
         },
         {
-          name: 'Jewelry',
-          "Margin rate": 70 ,
+          name: 'cloths ',
+          "products": 4,
           sale: 1098,
           Cost: 989,
           cnt: 350,
         },
         {
-          name: 'T-shirt',
-          "Margin rate": 80,
+          name: 'shoes ',
+          "products": 2,
           sale: 1200,
           Cost: 1228,
           cnt: 480,
         },
         {
-          name: 'Shoes',
-          "Margin rate": 79 ,
+          name: 'bags ',
+          "products": 2,
           sale: 1108,
           Cost: 1100,
           cnt: 460,
         },
-        {
-          name: 'Coats',
-          "Margin rate": 50,
-          sale: 680,
-          Cost: 1700,
-          cnt: 380,
-        },
-        {
-          name: 'hats',
-          "Margin rate": 70,
-          sale: 500,
-          Cost: 1848,
-          cnt: 836,
-        }
+
       ];
     return(
         <>
@@ -84,7 +90,7 @@ function LineBarAreaChart(){
           {/* monotone */}
           <Area type="linear" dataKey='Cost' fill='#d3dadf' stroke='#8884d8'/>
           <Bar dataKey='sale' barSize={7} fill='#00baff' />
-          <Line type='linear' dataKey='Margin rate' stroke='#d58bfd' fill='#d58bfd' />
+          <Line type='linear' dataKey='products' stroke='#d58bfd' fill='#d58bfd' />
        </ComposedChart>
        </CCardBody>
        </CCard>

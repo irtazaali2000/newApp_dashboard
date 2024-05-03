@@ -8,9 +8,61 @@ import NewState from './context/NewState'
 import PropTypes from 'prop-types';
 import NewContext from './context/NewContext'
 import { useContext } from 'react'
+import JsonContext from '../global context/JsonContext'
 
 const MarketAnalytics = () => {
     const data = useContext(NewContext)
+    let jsonContextData = useContext(JsonContext)
+    let masterArray = []
+    let brandsName = [];
+    let brandsProductQuantity = [];
+    let count = {}
+    let [brandNameList, setBrandNameList] = useState()
+    let [brandsProductQuantityList, setBrandsProductQuantityList] = useState()
+
+    useEffect(
+        () => {
+            // console.log(jsonContextData.categoryData , "from categories data")
+            let z = 1
+            // let j = 0
+            for (let i = 0; i < jsonContextData.categoryData.length; i++) {
+                // console.log("outter printing")
+                for (let j = 0; j < jsonContextData.categoryData[i].products.length; j++) {
+                    // console.log(jsonContextData.categoryData[i].products[j].Brand  ,   `${z}` ,  "from categories data" ) 
+                    masterArray.push(jsonContextData.categoryData[i].products[j].Brand)
+                }
+                // z = z + 1
+
+            }
+            // console.log(masterArray, "array all brands")
+            // console.log(masterArray.indexOf("B"))
+
+            // uniqueCount = ["a", "b", "c", "d", "d", "e", "a", "b", "c", "f", "g", "h", "h", "h", "e", "a"];
+            count = {};
+            masterArray.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+
+            // console.log(masterArray , "masterArray") 
+            // console.log(count  , "All brands with quantity");
+
+            brandsName = Object.keys(count);
+            brandsProductQuantity = Object.values(count);
+            setBrandNameList(brandsName)
+
+            console.log(brandsProductQuantity , "names all")
+            // setBrandsProductQuantityList(brandsName)
+            
+        }, []
+    )
+
+    //  let   
+    //    let  
+
+    console.log(brandNameList, "names all")
+    // console.log(brandsProductQuantityList , "here all list quantity")
+    // console.log(brandsName  , "List of brands" )
+    // console.log(brandsProductQuantity , "products")
+
+
     const [tablePriceTag, setTablePriceTag] = useState({
         width: "60px",
         height: "60px",
@@ -86,7 +138,7 @@ const MarketAnalytics = () => {
                 , dorpDownList: data.info.Clothing
             },
             ,
-           
+
             ,
             {
                 sku: "005",
@@ -276,8 +328,238 @@ const MarketAnalytics = () => {
         // console.log(data.data, "properties from json data component")
     }
     console.log(productNames === undefined)
+
+    const [brandDropDownDisplay, setBrandDropDownDisplay] = useState({
+        display: "none"
+    })
+    const [brand, setBrand] = useState([
+        {
+            brand: "Adidas",
+            value: "3",
+            category: "Shoes"
+        },
+        {
+            brand: "Apple",
+            value: "2",
+            category: "phones"
+        },
+        {
+            brand: "Armani",
+            value: "1",
+            category: "Cloths"
+        },
+        {
+            brand: "Bata",
+            value: "1",
+            category: "Cloths"
+        },
+        {
+            brand: "Boss ",
+            value: "4",
+            category: "Cloths"
+        },
+        {
+            brand: "Carolina Herrera",
+            value: "1",
+            category: "shoe"
+        },
+        {
+            brand: "Fragrance World Store ",
+            value: "1",
+            category: "bags"
+        },
+        {
+            brand: "Google Store",
+            value: "1",
+            category: "Phones"
+        },
+        {
+            brand: "Motorola Moto G Stylus",
+            value: "1",
+            category: "Phones"
+        },
+        {
+            brand: "Outfitters",
+            value: "4",
+            category: "Cloths"
+        },
+        {
+            brand: "Samsung",
+            value: "1",
+            category: "Phones"
+        },
+        {
+            brand: "Travelon ",
+            value: "1",
+            category: "bags"
+        },
+        {
+            brand: "Wolverine",
+            value: "1",
+            category: "bags"
+        },
+    ])
+
+
+    //     selectRetailVal1
+    // selectRetailVal2
+    // selectRetailVal3
+
+
+    let [selectRetailVal1, setSelectRetailVal1] = useState("Amazon")
+    let [selectRetailVal2, setSelectRetailVal2] = useState("Shein")
+    let [selectRetailVal3, setSelectRetailVal3] = useState("Alibaba")
+
+    let [popupOnOff, setPopupOnOff] = useState({ display: "none" })
+    let [displayPopupInfo, setDisplayPopupInfo] = useState({
+        retaillerName: "",
+        stock: "",
+        stockValue: "",
+        stock_availability: "",
+    })
+
+    function onPopupDisplay(data, retailler) {
+        return () => {
+            // setDisplayPopupInfo(displayPopupInfo = {})
+            // setDisplayPopupInfo(displayPopupInfo.stock = data.stockStatus)
+            // setDisplayPopupInfo(displayPopupInfo.stockValue = data.stock_value)
+            setDisplayPopupInfo({
+                retaillerName: retailler,
+                stock: data.stockStatus,
+                stockValue: data.stock_value,
+                stock_availability: data.stock_availability
+            })
+            //   console.log(retailler)
+
+            if (popupOnOff.display === "none") {
+                setPopupOnOff({ display: "flex" })
+            }
+            else {
+                setPopupOnOff({ display: "none" })
+            }
+            // setPopupOnOff(popupOnOff.display === "none" ? popupOnOff.display === "flex" : popupOnOff.display === "none" )
+
+        }
+    }
+
+
+
+
+
+    function dropDownMenuDisplay(e) {
+        // console.log(e.target.parentElement.parentElement.children[1])
+
+        if (e.target.parentElement.parentElement.children[1].style.display === "none") {
+            e.target.parentElement.parentElement.children[1].style.display = "block"
+        }
+        else {
+            e.target.parentElement.parentElement.children[1].style.display = "none"
+        }
+    }
+    let [popupBody_product, setPopupBody_product] = useState({
+        display: "none"
+    })
+    let [productsData, setProductsData] = useState([])
+    function sendProductsData(dataItems, categoryName) {
+        return () => {
+            popupBody_product.display === "none" ? setPopupBody_product({ display: "flex" }) : setPopupBody_product({ display: "none" })
+            console.log(dataItems.products, "from sedn products data")
+            let arr = []
+            for (let i = 0; i < dataItems.products.length; i++) {
+                console.log(dataItems.products[i].category, "looping")
+                console.log(categoryName)
+                console.log(dataItems.products[i].category === categoryName ? "yes" : "no")
+
+                // if(dataItems.products[i].category === categoryName)
+                // {
+                //     arr.push(dataItems.products[i])
+                // console.log(arr)
+
+                // }
+
+            }
+            setProductsData(dataItems.products)
+            // console.log(arr)
+        }
+    }
     return (
         <>
+
+            <div className='popup_body_product' style={popupBody_product}>
+                <div style={{ position: "relative" }} className='marketTrendPopUp' >
+                    <i onClick={() => { setPopupBody_product({ display: "none" }) }} class="fa-solid fa-circle-xmark crossIcon"></i>
+                    <div className='popupProductTable'>
+                        <div className='heading '>
+                            <div className='productInfo'>
+                                Product Detail
+                            </div>
+                            <div className='retailers'>
+                                <div className="">{selectRetailVal1}</div>
+                                <div className="">{selectRetailVal2}</div>
+                                <div className="">{selectRetailVal3}</div>
+                            </div>
+                        </div>
+                        {
+                            productsData.map(
+                                (item) => {
+                                    return (
+                                        <>
+                                            <div className='productsRows'>
+                                                <div className='productsRowsInnerdata'>
+                                                    <div className='img'><img src={item.url} alt="" /></div>
+                                                    <div className='name_price'>
+                                                        <h6> {item.name}</h6>
+                                                        <span>   <b>Price :</b> ${item.my_price}</span>
+
+                                                    </div>
+                                                </div>
+                                                {/* selectRetailVal1 selectRetailVal2 selectRetailVal3 */}
+                                                <div className='productsRowsInnerdata retailers prices'>
+                                                    <div>$ {item.retailers[selectRetailVal1].price}
+                                                        <div style={{ background: `${item.retailers[selectRetailVal1].color}` }} className='stockStatus' ></div>
+                                                    </div>
+                                                    <div>$ {item.retailers[selectRetailVal2].price}
+                                                        <div style={{ background: `${item.retailers[selectRetailVal1].color}` }} className='stockStatus' ></div>
+                                                    </div>
+                                                    <div>$ {item.retailers[selectRetailVal3].price}
+                                                        <div style={{ background: `${item.retailers[selectRetailVal1].color}` }} className='stockStatus' ></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                }
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+            <div style={popupOnOff} className='popupBody'>
+                <div className='popupBox'>
+
+                    <div className='crossPopup' style={{
+                        backgroundColor: "white", padding: "", border: "", borderRadius: "50%",
+                        display: "flex"
+                    }}><i onClick={() => { setPopupOnOff({ display: "none" }) }} class="fa-solid fa-circle-xmark "></i></div>
+                    {/* <i class="fa-solid fa-circle-xmark"></i> */}
+                    <table className='stockDetailTable'>
+                        <tr>
+                            <th>Retailer Name</th>
+                            <th>Stock Status</th>
+                            <th>Stock Value</th>
+                            <th>Stock %</th>
+                        </tr>
+                        <tr>
+                            <td >{displayPopupInfo.retaillerName}</td>
+                            <td >{displayPopupInfo.stock}</td>
+                            <td>{displayPopupInfo.stockValue}</td>
+                            <td>{displayPopupInfo.stock_availability}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
             <div className='utilityClasses' lg={12} style={{
                 display: "flex", alignItems: "center", justifyContent: "",
                 margin: "20px 0px", justifyContent: "space-between"
@@ -286,8 +568,57 @@ const MarketAnalytics = () => {
                     <div style={productNames === "Categories" ? backgroundColorTab : {}} onClick={tab("Categories")} className='tabBtn'>
                         Categories
                     </div>
-                    <div style={productNames === "Brand" ? backgroundColorTab : {}} onClick={tab("Brand")} className='tabBtn' >
-                        Brand
+                    <div style={{
+                        ...productNames === "Brand" ? backgroundColorTab : {},
+                        position: "relative"
+                    }} onClick={() => {
+                        if (brandDropDownDisplay.display === "none") {
+                            setBrandDropDownDisplay({ display: "block" })
+                        }
+                        else {
+                            setBrandDropDownDisplay({ display: "none" })
+                        }
+                    }} className='tabBtn' >
+                        Brands
+
+                    </div>
+                    <div className='brandDropdownList' style={{
+                        position: "absolute", width: "600px", height: "400px",
+                        border: "", zIndex: "950", top: "22%", left: "33%", ...brandDropDownDisplay
+                    }} >
+
+                        <div className='brandDropdownListItem'>
+                            {/* {brand} */}
+                            <div>
+
+                            </div>
+                            <div style={{display:"flex"}}>
+                                {/* <div style={{ color: "black", textAlign: "start" }}>
+                                    {brandNameList.map(
+                                        (val) => {
+                                            return (
+                                                <>
+                                                    <div>{val}</div>
+                                                </>
+                                            )
+
+                                        }
+                                    )}
+                                </div>
+                                <div style={{ color: "black", textAlign: "start" }}>
+                                    {brandNameList.map(
+                                        (val) => {
+                                            return (
+                                                <>
+                                                    <div>{val}</div>
+                                                </>
+                                            )
+
+                                        }
+                                    )}
+                                </div> */}
+                            </div>
+                        </div>
                     </div>
                     <div  >
                         <select style={{
@@ -302,13 +633,33 @@ const MarketAnalytics = () => {
                 </div>
                 {/* <HeaderMain title="System" className="mb-4 mb-lg-5" /> */}
                 <div style={{ position: "relative", display: "flex", gap: "10px", alignItems: "center", marginRight: "30px" }}>
-                    <div>
+                    {/* <div>
                         <i style={{ position: "absolute", top: "30%", marginLeft: "9px", fontSize: "17px", color: "black" }} class="fa-solid fa-magnifying-glass"></i>
                         <input style={{
                             border: "none", outline: "none", width: "400px", borderRadius: "10px", height: "22px", boxSizing: "border-box",
                             padding: "20px  40px", fontSize: "20px", backgroundColor: "#e6e6f6"
                         }} type="text" />
+                    </div> */}
+
+                    <div className='selectionRetailler'>
+                        <select value={selectRetailVal1} onChange={(e) => { setSelectRetailVal1(e.target.value) }}>
+                            <option >Noon</option>
+                            <option >Amazon</option>
+                            <option >Carrefour </option>
+                        </select>
+                        <select value={selectRetailVal2} onChange={(e) => (setSelectRetailVal2(e.target.value))}>
+                            <option >Shein</option>
+                            <option >Lulu Hypermarket</option>
+                            <option >Walmart</option>
+                        </select>
+                        <select value={selectRetailVal3} onChange={(e) => (setSelectRetailVal3(e.target.value))}>
+                            <option >Alibaba </option>
+                            <option >Trendyol </option>
+                            <option >Namshi</option>
+
+                        </select>
                     </div>
+
                     {/* <div style={{ position: "relative" }} >
                         <i style={{ fontSize: "20px" }} class="fa-solid fa-eye"></i>
                         <span style={{
@@ -329,156 +680,106 @@ const MarketAnalytics = () => {
 
                 <CCard>
                     <div className='productNames'>
-                        <table style={{width:"100%"}}>
-                            <tr style={{width:"100%"}}>
-                                <th style={{ width: "440px" }}>
+                        <table style={{ width: "100%" }}>
+                            <tr style={{ width: "100%" }}>
+                                <th style={{ width: "330px", border: "" }}>
                                     {productNames}
                                 </th>
-                                <th style={{ width: "130px"  ,paddingLeft:"19px" ,boxSizing:"border-box" }}>
+                                <th style={{ width: "170px", paddingLeft: "19px", boxSizing: "border-box" }}>
                                     SKUs
                                 </th>
-                                <th style={{ width: "130px" ,paddingLeft:"19px" ,boxSizing:"border-box"  }} >
+                                <th style={{ width: "100px", paddingLeft: "19px", boxSizing: "border-box" }} >
                                     Market
                                 </th>
-                                <th style={{ width: "140px", textAlign: "center" ,paddingLeft:"19px" ,boxSizing:"border-box"  }}>
-                                    Walmart
+                                <th style={{ width: "13%", textAlign: "center", paddingLeft: "19px", boxSizing: "border-box", width: "130px" }}>
+                                    {selectRetailVal1}
                                 </th>
-                                <th style={{ width: "140px", textAlign: "center" ,paddingLeft:"19px" ,boxSizing:"border-box"  }}>
-                                    Amazon
+                                <th style={{ width: "13%", textAlign: "center", paddingLeft: "19px", boxSizing: "border-box", width: "130px" }}>
+                                    {selectRetailVal2}
                                 </th>
-                                <th style={{ width: "140px", textAlign: "center"  ,paddingLeft:"19px" ,boxSizing:"border-box" }}>
-                                    Alibaba
+                                <th style={{ width: "13%", textAlign: "center", paddingLeft: "19px", boxSizing: "border-box", width: "130px" }}>
+                                    {selectRetailVal3}
                                 </th>
                             </tr>
                         </table>
-                        <table className='droperTable' style={{border:"" , width:"100%"}}>
+                        <table className='droperTable' style={{ border: "", width: "100%" }}>
                             {
-                                productData.map(
+                                jsonContextData.categoryData.map(
                                     (item) => {
                                         return (
                                             <>
-                                                <div>
+                                                <div style={{ width: "100%" }} className='table_rowsDiv' >
                                                     <tr style={{}} >
-                                                        <th className='thWidthClass1'  onClick={check(item.dorpDownList)} ref={refer} style={{ height: "90px", fontWeight: "500", boxSizing: "border-box", paddingTop: "40px" , width:"" }} >
-
-
-                                                            {productNames === 'Categories' ? item.category : item.brand}
-
-
-
-                                                            {/* {
-                                                            item.dorpDownList.map(
-                                                                (values) => {
-                                                                    return (
-                                                                        <>
-                                                                            <div className='dropDownList' style={{
-                                                                                color: "black", display: "none",
-
-                                                                            }}>
-                                                                                <h3>{values.productName}</h3>
-                                                                            </div>
-                                                                        </>
-                                                                    )
-                                                                }
-                                                            )
-                                                        } */}
-                                                        </th>
-                                                        <th className='thWidthClass'>
-                                                            {item.sku}
-                                                        </th>
-                                                        <th className='thWidthClass'>
-                                                            {item.market}
-                                                        </th>
-                                                        <th className='retailer thWidthClass' style={{ color: "white", height: "90px", paddingLeft: "30px" }} >
-                                                            <div style={{ ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center" , 
-                                                        paddingLeft:"10px" , width:"90px" , height:"40px"
-                                                        }}>
-                                                                <div > {item.retailer_1.price}  </div>
-                                                            </div>
-                                                            {/* {
-                                                            item.dorpDownList.map(
-                                                                (values) => {
-                                                                    return (
-                                                                        <>
-                                                                            <div className='dropDownList' style={{ display: "none", }}>
-                                                                                {values.retailer1}
-                                                                            </div>
-                                                                        </>
-                                                                    )
-                                                                }
-                                                            )
-                                                        } */}
-                                                        </th>
-                                                        <th className='retailer thWidthClass' style={{
-                                                            color: "white", paddingLeft: "30px", boxSizing: "border-box"
-
-                                                        }} >
-                                                            <div style={{
-                                                                ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, display: "flex", justifyContent: "center", alignItems: "center",paddingLeft:"10px" , width:"90px" , height:"40px"
-
-                                                            }}>
-                                                                <div>  {item.retailer_2.price}</div>
-                                                            </div>
-                                                            {
-                                                                item.dorpDownList.map(
-                                                                    (values) => {
-                                                                        return (
-                                                                            <>
-                                                                                <div className='dropDownList' style={{ display: "none" }}>
-                                                                                    {values.retailer2}
-                                                                                </div>
-                                                                            </>
-                                                                        )
-                                                                    }
-                                                                )
-                                                            }
-                                                        </th>
-                                                        <th className='retailer thWidthClass' style={{ color: "white", paddingLeft: "30px", height: "90px", }} >
-                                                            <div style={{ ...tablePriceTag, borderRadius: "", backgroundColor: `${item.retailer_1.range}`, position: "relative", display: "flex", justifyContent: "center", alignItems: "center" ,paddingLeft:"10px" , width:"90px" , height:"40px" }}>
-                                                                <div style={{ left: "30%", top: "30%" }} >{item.retailer_3.price}
+                                                        {/* onClick={check(item.dorpDownList)} */}
+                                                        <td onClick={sendProductsData(item, item.name)} className='thWidthClass1' ref={refer} style={{ height: "100%", fontWeight: "500", boxSizing: "border-box", paddingTop: "", width: "330px", border: "" }}  >
+                                                            {item.name}
+                                                        </td>
+                                                        <td className='thWidthClass' style={{ width: "170px" }}>
+                                                            {item.SKUs}
+                                                        </td>
+                                                        <td className='thWidthClass' style={{ width: "100px" }}>
+                                                            {item.Market}
+                                                        </td>
+                                                        <td className='retailer thWidthClass' style={{
+                                                            color: "black", paddingLeft: "30px", width: "130px",
+                                                            position: "relative"
+                                                        }} onClick={onPopupDisplay(item[selectRetailVal1], selectRetailVal1)} >
+                                                            {/* <div className='hoverSmallTooltip'></div> */}
+                                                            <div className='stockValuesBox' style={{ border: `1px solid ${item[selectRetailVal1].color}` }}>
+                                                                <div className='stockValue'>
+                                                                    {item[selectRetailVal1].stockStatus}
+                                                                </div>
+                                                                <div className='stockPercentage'>
+                                                                    <div style={{ width: `${item[selectRetailVal1].stock_availability}`, backgroundColor: ` ${item[selectRetailVal1].color}` }}>
+                                                                        {item[selectRetailVal1].stock_availability}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            {
-                                                                item.dorpDownList.map(
-                                                                    (values) => {
-                                                                        return (
-                                                                            <>
-                                                                                <div className='dropDownList' style={{ display: "none" }}>
-                                                                                    {values.retailer3}
-                                                                                </div>
-                                                                            </>
-                                                                        )
-                                                                    }
-                                                                )
-                                                            }
-                                                        </th>
+                                                        </td>
+                                                        <td className='retailer thWidthClass' style={{
+                                                            color: "black", paddingLeft: "30px", boxSizing: "border-box",
+                                                            width: "130px"
+                                                        }} onClick={onPopupDisplay(item[selectRetailVal2], selectRetailVal2)}>
+                                                            <div className='stockValuesBox' style={{ border: `1px solid ${item[selectRetailVal2].color}` }}>
+                                                                <div className='stockValue'>
+                                                                    {item[selectRetailVal2].stockStatus}
+                                                                </div>
+                                                                <div className='stockPercentage'>
+                                                                    <div style={{ width: `${item[selectRetailVal2].stock_availability}`, backgroundColor: ` ${item[selectRetailVal2].color}` }}>
+                                                                        {item[selectRetailVal2].stock_availability}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </td>
+                                                        <td className='retailer thWidthClass' style={{ color: "black", paddingLeft: "30px", width: "130px" }}
+                                                            onClick={onPopupDisplay(item[selectRetailVal3], selectRetailVal3)}
+                                                        >
+                                                            <div className='stockValuesBox' style={{ border: `1px solid ${item[selectRetailVal3].color}` }}>
+                                                                <div className='stockValue'>
+                                                                    {item[selectRetailVal3].stockStatus}
+                                                                </div>
+                                                                <div className='stockPercentage'>
+                                                                    <div style={{ width: `${item[selectRetailVal3].stock_availability}`, backgroundColor: ` ${item[selectRetailVal3].color}` }}>
+                                                                        {item[selectRetailVal3].stock_availability}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
-                                                    <div className='listingDiv' style={displayListing}>
-                                                    {
-                                                        // productData
-                                                        // dorpDownList
-                                                        
-                                                        dropDownListing.map(
-                                                            (item) => {
-                                                                return (
-                                                                    <>
-                                                                        <tr  style={{  
-                                                                        width:"100%" , border:""
-                                                                        }}>
-                                                                            <td style={{width:"40%"}}>{item.productName}</td>
-                                                                            <td style={{ width:"15%",   }} >{"num"}</td>
-                                                                            <td style={{ width:"15%",   }} >market</td>
-                                                                            <td   style={{ width:"15%",    textAlign: "" }}>{item.retailer1}</td>
-                                                                            <td   style={{  width:"15%",   textAlign: "" }}>{item.retailer2}</td>
-                                                                            <td  style={{  width:"15%",   textAlign: "" }}>{item.retailer3}</td>
-                                                                        </tr>
-                                                                    </>
-                                                                )
-                                                            }
-                                                        )
-                                                    }
+                                                    <div style={{ display: "none" }} className='dropDownMenuForCategory'>
+                                                        <tr>
+                                                            <th style={{ width: "330px" }}>Products Names</th>
+                                                            <th style={{ width: "170px" }}>ID</th>
+                                                            <th style={{ width: "100px" }}>Market</th>
+                                                            <th style={{ width: "130px" }}>Prices</th>
+                                                            <th style={{ width: "130px" }}>Prices</th>
+                                                            <th style={{ width: "130px" }}>Prices</th>
+
+                                                        </tr>
                                                     </div>
                                                 </div>
+
                                             </>
                                         )
                                     }

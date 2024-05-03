@@ -10,6 +10,7 @@ const detailed_explanation = React.lazy(() => import('./views/DetailedExplanatio
 const price_intelligence = React.lazy(() => import('./views/Price Intelligence/PriceIntelligence'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 const productPage = React.lazy(()=> import('./views/product/NewProducts'))
+const stockAnalytics = React.lazy(()=> import('./views/stock analytics/Main'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -54,12 +55,15 @@ const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'))
 const Badges = React.lazy(() => import('./views/notifications/badges/Badges'))
 const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
+const My = React.lazy(() => import('./views/my practice/My'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/my', name: 'Dashboard', element: My },
+  { path: '/stock-analytics', name: 'Stock Analytics', element: stockAnalytics },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/product1', name: 'Colors', element: Product1},

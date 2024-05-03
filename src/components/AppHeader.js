@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import NewContext from '../views/marketAnalytics/context/NewContext'
 import { useContext } from 'react'
+import JsonContext from '../views/global context/JsonContext'
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -33,6 +34,7 @@ import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
 
 const AppHeader = () => {
+  let JsonContextData = useContext(JsonContext)
   const headerRef = useRef()
   const { colorMode, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
 
@@ -53,7 +55,7 @@ const AppHeader = () => {
   // )
 
   return (
-    <CHeader position="sticky" className="mb-2 p-0 " ref={headerRef} style={{ width: "", }} >
+    <CHeader position="sticky" className="mb-2 p-0 " ref={headerRef} style={{ width: "", border:"" , backgroundColor:"#f3f4f7" }} >
       <CContainer className="border-bottom px-4" fluid>
         <CHeaderToggler
           onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
@@ -97,7 +99,7 @@ const AppHeader = () => {
             <span style={{
               padding: "5px 12px ", backgroundColor: "red", position: "absolute", bottom: "30%",
               left: "70%", borderRadius: "7px", color: "white"
-            }} >{0}</span>
+            }} >{JsonContextData.watchListCountContext}</span>
           </div>
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>

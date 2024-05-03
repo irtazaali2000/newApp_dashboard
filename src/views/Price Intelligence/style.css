@@ -1,6 +1,10 @@
 .compiteterUtility h4{
     font-size: 16px ;
 }
+.pricesRangeUtility{
+    /* border: 1px solid black; */
+    
+}
 .pricesRangeUtility h5{
     font-size: 18px ; 
 }
@@ -24,12 +28,12 @@
 }
 .tinyPieChartBox{
     /* border: 1px solid black; */
-
+    width: 120px;
 }
 
 .popupBodyForComparision{
     /* color: red; */
-    position:absolute ;
+    position:fixed ;
     top: 0%;
     left: 0%;
     z-index: 999999999999999;
@@ -41,20 +45,41 @@
     justify-content: center;
     align-items: center;
     /* display: none!important; */
+    /* border: 1px solid black; */
+}
+.comparisionTableHeadingRow{border: none!important;}
+.comparision_table {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    /* padding: 50px!important; */
+    box-shadow: 0px 0px 4px rgb(134, 130, 130),
+    0px 0px 4px rgb(134, 130, 130),
+    0px 0px 4px rgb(134, 130, 130),
+    0px 0px 4px rgb(134, 130, 130);
+    
+}
+.popup_comparision_body{
+    width: auto;
+    height: 500px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    background-color: white;
+    position: relative;
 
 }
-
 .popup_comparision{
-    width: 600px;
-    height: 300px;
+    width: 900px;
+    height: 450px;
     background-color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 10px 14px;
+    padding: 0px 14px;
     padding-top: 40px;
     align-items: center;
+    overflow-y: scroll;
     /* font-size:; */
 }
 .popup_comparision  button{
@@ -69,10 +94,25 @@
 }
 .popup_comparision table tr th{
     font-size: 20px;
-    padding: 0px 10px;
+    padding: 0px 20px;
+    border-bottom: 3px solid grey;
+    /* position: sticky; */
+    top: 0%;
+    background-color: white;
+    height: 90px;
 }
 .popup_comparision table tr td{
-    padding: 0px 10px;
-    padding-top: 20px;
-    font-size: 16px;
+    padding: 0px 20px;
+    padding-top: 25px;
+    font-size: 18px;
+    border-bottom: 3px solid grey;
+}
+
+.crossIconComparisionScreen{
+    position: absolute;
+    top: -3%;
+    left: 96%;
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
 }

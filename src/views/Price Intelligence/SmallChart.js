@@ -21,8 +21,8 @@ function SmallChart(props){
 const COLORS = [`${props.color}`, '#f1f1f1',];
 let property = props.value
 const data = [
-    { name: 'Prices', value: props.value },
-    { name: 'Group B', value: 300 },
+    { name: 'Prices', value: props.value1 },
+    { name: 'Group B', value: props.value2 },
    
   ];
 
@@ -37,7 +37,7 @@ const data = [
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={60}
+            outerRadius={40}
             fill="#8884d8"
             dataKey="value"
           >

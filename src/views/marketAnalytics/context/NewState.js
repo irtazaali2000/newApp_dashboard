@@ -475,10 +475,316 @@ function NewState(props) {
 
     const [productData_detail , setProductData_detail ] = useState()
 
+    let [pricesDATA , setPricesDATA] = useState()
+    let [ourPrices , setOurPrices] = useState()
+
+    let [categoryData , setCategoryData] = useState( [
+      {
+          "name": "Mobile Phone and Tables",
+          "Amazon": {
+              "stock_availability": "80%",
+              "stock_value": "1330",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Noon": {
+              "stock_availability": "60%",
+              "stock_value": "1200",
+              "stockStatus": "Out of stock ",
+              "color": "#ff0000 "
+          },
+          "Lulu Hypermarket": {
+              "stock_availability": "75%",
+              "stock_value": "1280",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Shein": {
+              "stock_availability": "90%",
+              "stock_value": "1400",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Carrefour": {
+              "stock_availability": "85%",
+              "stock_value": "1350",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Alibaba": {
+              "stock_availability": "95%",
+              "stock_value": "1500",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Walmart": {
+              "stock_availability": "70%",
+              "stock_value": "1250",
+              "stockStatus": "Out of stock",
+              "color": "#ff0000 "
+          },
+          "Trendyol": {
+              "stock_availability": "65%",
+              "stock_value": "1230",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Namshi": {
+              "stock_availability": "80%",
+              "stock_value": "1300",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "SKUs": "MP351",
+          "Market": "USA"
+      },
+      {
+          "name": "Perfumes ",
+          "Amazon": {
+              "stock_availability": "70%",
+              "stock_value": "1190",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Noon": {
+              "stock_availability": "50%",
+              "stock_value": "1100",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Lulu Hypermarket": {
+              "stock_availability": "65%",
+              "stock_value": "1150",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Shein": {
+              "stock_availability": "80%",
+              "stock_value": "1250",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Carrefour": {
+              "stock_availability": "75%",
+              "stock_value": "1200",
+              "stockStatus": "Out of stock",
+              "color": "#ff0000 "
+          },
+          "Alibaba": {
+              "stock_availability": "85%",
+              "stock_value": "1300",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Walmart": {
+              "stock_availability": "60%",
+              "stock_value": "1050",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Trendyol": {
+              "stock_availability": "55%",
+              "stock_value": "1000",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Namshi": {
+              "stock_availability": "70%",
+              "stock_value": "1170",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "SKUs": "P356",
+          "Market": "USA"
+      },
+      {
+          "name": "Clothing",
+          "Amazon": {
+              "stock_availability": "90%",
+              "stock_value": "800",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Noon": {
+              "stock_availability": "80%",
+              "stock_value": "750",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Lulu Hypermarket": {
+              "stock_availability": "85%",
+              "stock_value": "780",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Shein": {
+              "stock_availability": "95%",
+              "stock_value": "850",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Carrefour": {
+              "stock_availability": "70%",
+              "stock_value": "720",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Alibaba": {
+              "stock_availability": "75%",
+              "stock_value": "770",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Walmart": {
+              "stock_availability": "60%",
+              "stock_value": "700",
+              "stockStatus": "Out of stock",
+              "color": "#ff0000 "
+          },
+          "Trendyol": {
+              "stock_availability": "55%",
+              "stock_value": "680",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Namshi": {
+              "stock_availability": "65%",
+              "stock_value": "730",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "SKUs": "C255",
+          "Market": "USA"
+      },
+      {
+          "name": "Shoes",
+          "Amazon": {
+              "stock_availability": "85%",
+              "stock_value": "900",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Noon": {
+              "stock_availability": "75%",
+              "stock_value": "850",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Lulu Hypermarket": {
+              "stock_availability": "80%",
+              "stock_value": "870",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Shein": {
+              "stock_availability": "90%",
+              "stock_value": "920",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Carrefour": {
+              "stock_availability": "65%",
+              "stock_value": "800",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Alibaba": {
+              "stock_availability": "70%",
+              "stock_value": "830",
+              "stockStatus": "Out of Stock",
+              "color": "#ff0000"
+          },
+          "Walmart": {
+              "stock_availability": "55%",
+              "stock_value": "780",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Trendyol": {
+              "stock_availability": "50%",
+              "stock_value": "760",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Namshi": {
+              "stock_availability": "60%",
+              "stock_value": "810",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "SKUs": "S473",
+          "Market": "USA"
+      },
+      {
+          "name": "Bags",
+          "Amazon": {
+              "stock_availability": "80%",
+              "stock_value": "700",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Noon": {
+              "stock_availability": "70%",
+              "stock_value": "650",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Lulu Hypermarket": {
+              "stock_availability": "75%",
+              "stock_value": "680",
+              "stockStatus": "Out of Stock",
+              "color": "#ff0000"
+          },
+          "Shein": {
+              "stock_availability": "85%",
+              "stock_value": "730",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Carrefour": {
+              "stock_availability": "60%",
+              "stock_value": "620",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "Alibaba": {
+              "stock_availability": "65%",
+              "stock_value": "650",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Walmart": {
+              "stock_availability": "50%",
+              "stock_value": "600",
+              "stockStatus": "Out of Stock",
+              "color": "#ff0000 "
+          },
+          "Trendyol": {
+              "stock_availability": "45%",
+              "stock_value": "580",
+              "stockStatus": "Instock",
+              "color": "#ff9300 "
+          },
+          "Namshi": {
+              "stock_availability": "55%",
+              "stock_value": "630",
+              "stockStatus": "Instock",
+              "color": "#008428"
+          },
+          "SKUs": "B158",
+          "Market": "USA"
+      }
+  ])
+
+
   return (
    <>
    <NewContext.Provider value={{
-    data , info , setInfo , priceTrendCloths ,priceTrendMobilePhones , array , productData_detail , setProductData_detail
+    ourPrices , setOurPrices , 
+    setPricesDATA , pricesDATA ,
+    data , info , setInfo , priceTrendCloths ,priceTrendMobilePhones , array , productData_detail , setProductData_detail ,
+    categoryData ,  setCategoryData 
+  
    }}>
     {props.children}
    </NewContext.Provider>
